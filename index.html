@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skrip Wakil Lelaki - Majlis Meminang Naufal & Sarah</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Great+Vibes&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold-deep: #966115;
+      --gold-primary: #C58B24;
+      --gold-light: #E5B25D;
+      --mustard: #E29B12;
+      --mustard-soft: #F9DA79;
+      --cream-bg: #FCF8F1;
+      --card-bg: #FFFFFF;
+      --dark-text: #2B1D0C;
+      --wood-dark: #3F2305;
+      --wood-accent: #794210;
+      --border-gold: #E5CE9F;
+      --highlight-box: #FFF8EA;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--cream-bg);
+      background-image: radial-gradient(#e7d3af 1px, transparent 1px);
+      background-size: 24px 24px;
+      color: var(--dark-text);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      line-height: 1.7;
+      padding-bottom: 90px;
+    }
+
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    /* Banner / Poster Hero */
+    .hero-banner {
+      background: linear-gradient(145deg, #3A2006, #613508 55%, #8B4D0D);
+      border: 2px solid var(--gold-light);
+      border-radius: 20px;
+      padding: 28px 20px;
+      text-align: center;
+      color: #FFFDF8;
+      box-shadow: 0 10px 30px rgba(58, 32, 6, 0.25);
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 22px;
+    }
+
+    .hero-banner::after {
+      content: "";
+      position: absolute;
+      top: 6px; left: 6px; right: 6px; bottom: 6px;
+      border: 1px dashed rgba(249, 218, 121, 0.5);
+      border-radius: 14px;
+      pointer-events: none;
+    }
+
+    .subtitle-top {
+      font-family: 'Cinzel', serif;
+      letter-spacing: 4px;
+      font-size: 0.85rem;
+      color: var(--mustard-soft);
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .title-main {
+      font-family: 'Cinzel', serif;
+      font-size: 2.1rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin: 4px 0 0 0;
+      line-height: 1.15;
+    }
+
+    .title-script {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.5rem;
+      color: var(--mustard-soft);
+      display: block;
+      margin-top: -6px;
+      line-height: 1.2;
+    }
+
+    .tagline {
+      font-family: 'Cinzel', serif;
+      font-size: 0.95rem;
+      color: #E8D5B5;
+      font-style: italic;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+    }
+
+    .event-meta {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+      background: rgba(0, 0, 0, 0.28);
+      border: 1px solid rgba(229, 178, 93, 0.35);
+      border-radius: 12px;
+      padding: 12px 16px;
+      text-align: left;
+      font-size: 0.9rem;
+    }
+
+    @media (min-width: 540px) {
+      .event-meta {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .meta-item span.icon {
+      font-size: 1.25rem;
+    }
+
+    .palette-strip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .swatch {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 2px solid #FFFDF8;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+
+    /* Controls Bar */
+    .controls-panel {
+      background: #FFFFFF;
+      border: 1px solid var(--border-gold);
+      border-radius: 14px;
+      padding: 14px 18px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 14px rgba(150, 97, 21, 0.08);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .target-input-wrap {
+      flex: 1 1 280px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .target-input-wrap label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--wood-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .target-input-wrap input {
+      padding: 8px 12px;
+      border: 1.5px solid var(--border-gold);
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .target-input-wrap input:focus {
+      border-color: var(--gold-primary);
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .btn {
+      background: #FFFFFF;
+      border: 1px solid var(--border-gold);
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--wood-dark);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .btn:hover {
+      background: var(--highlight-box);
+      border-color: var(--gold-primary);
+    }
+
+    .btn.active {
+      background: var(--gold-primary);
+      color: #FFFFFF;
+      border-color: var(--gold-primary);
+    }
+
+    /* Script Sections / Cards */
+    .section-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-gold);
+      border-radius: 16px;
+      padding: 22px 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 5px 18px rgba(150, 97, 21, 0.06);
+      transition: transform 0.2s ease;
+      position: relative;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid var(--highlight-box);
+      padding-bottom: 12px;
+      margin-bottom: 16px;
+    }
+
+    .section-badge {
+      font-family: 'Cinzel', serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      background: var(--highlight-box);
+      color: var(--gold-deep);
+      border: 1px solid var(--border-gold);
+      padding: 3px 10px;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+    }
+
+    .section-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--wood-dark);
+    }
+
+    .dialogue-text {
+      font-size: 1.05rem;
+      color: #332414;
+      line-height: 1.85;
+      margin-bottom: 14px;
+    }
+
+    .pantun-box {
+      background: linear-gradient(135deg, #FFFDF8, #FFF5DE);
+      border-left: 4px solid var(--gold-primary);
+      border-right: 1px solid var(--border-gold);
+      border-top: 1px solid var(--border-gold);
+      border-bottom: 1px solid var(--border-gold);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin: 16px 0;
+      font-style: italic;
+      font-family: 'Cinzel', serif;
+      color: #4A2E05;
+      line-height: 1.9;
+    }
+
+    .stage-direction {
+      background: #FDF3E1;
+      border: 1px dashed var(--gold-primary);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin: 14px 0;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #824C0A;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .highlight-target {
+      background-color: #FFE699;
+      color: #3A2006;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      border-bottom: 2px solid var(--gold-primary);
+    }
+
+    .points-list {
+      background: #FAF7F2;
+      border-radius: 10px;
+      padding: 14px 18px 14px 32px;
+      margin: 14px 0;
+      border: 1px solid #EFE6D6;
+    }
+
+    .points-list li {
+      margin-bottom: 8px;
+      color: #3B2610;
+    }
+
+    .points-list strong {
+      color: var(--wood-dark);
+    }
+
+    /* Floating navigation for mobile step-by-step */
+    .mobile-nav-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid var(--border-gold);
+      padding: 10px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 -4px 12px rgba(0,0,0,0.06);
+      z-index: 100;
+    }
+
+    .nav-btn {
+      background: var(--wood-dark);
+      color: #FFFFFF;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .nav-btn:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+
+    .step-indicator {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--wood-accent);
+      font-family: 'Cinzel', serif;
+    }
+
+    /* Print Styles */
+    @media print {
+      body {
+        background: white;
+        color: black;
+        padding-bottom: 0;
+      }
+      .controls-panel, .mobile-nav-bar, .palette-strip {
+        display: none !important;
+      }
+      .section-card {
+        page-break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #CCC;
+      }
+      .hero-banner {
+        background: #3A2006 !important;
+        -webkit-print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Header Hero Banner with Poster Info -->
+    <header class="hero-banner">
+      <div class="subtitle-top">Rombongan Meminang</div>
+      <h1 class="title-main">Naufal &amp; Sarah</h1>
+      <span class="title-script">Menyulam Kasih, Mengikat Janji</span>
+      <p class="tagline">Skrip Rasmi Wakil Keluarga Pihak Lelaki (Nabil Haikal)</p>
+
+      <div class="event-meta">
+        <div class="meta-item">
+          <span class="icon">📅</span>
+          <div><strong>Tarikh:</strong> Sabtu, 7 November 2026</div>
+        </div>
+        <div class="meta-item">
+          <span class="icon">⏰</span>
+          <div><strong>Waktu Berkumpul:</strong> 11.00 Pagi</div>
+        </div>
+        <div class="meta-item" style="grid-column: 1 / -1;">
+          <span class="icon">📍</span>
+          <div><strong>Lokasi:</strong> Tim's Tea House Cafe, Taman Melawati</div>
+        </div>
+      </div>
+
+      <div class="palette-strip" title="Tema: Gold, Mustard & Kuning">
+        <span style="font-size:0.75rem; color:#E8D5B5; margin-right:4px;">Tema Pakaian:</span>
+        <div class="swatch" style="background: #995B16;"></div>
+        <div class="swatch" style="background: #BD7C1A;"></div>
+        <div class="swatch" style="background: #EDA628;"></div>
+        <div class="swatch" style="background: #FAC64D;"></div>
+        <div class="swatch" style="background: #FEE890;"></div>
+      </div>
+    </header>
+
+    <!-- Toolbar / Controls Panel -->
+    <section class="controls-panel">
+      <div class="target-input-wrap">
+        <label for="speakerInput">Nama Jurucakap Pihak Sarah (Bila Dah Tahu):</label>
+        <input type="text" id="speakerInput" placeholder="Contoh: En. Azman / Pak Ngah" oninput="updateTargetName(this.value)">
+      </div>
+      <div class="btn-group">
+        <button class="btn" onclick="adjustFont(-1)" title="Kecilkan Fon">A-</button>
+        <button class="btn" onclick="adjustFont(1)" title="Besarkan Fon">A+</button>
+        <button class="btn" onclick="window.print()" title="Cetak atau Simpan PDF">🖨️ Cetak</button>
+      </div>
+    </section>
+
+    <!-- CARD 1: PEMBUKAAN -->
+    <article class="section-card" id="card-1">
+      <div class="section-header">
+        <span class="section-badge">Bahagian 1</span>
+        <h2 class="section-title">Pembukaan &amp; Ucapan Salam</h2>
+      </div>
+      <p class="dialogue-text">
+        <strong>Assalamualaikum warahmatullahi wabarakatuh.</strong><br>
+        <strong>Bismillahirrahmanirrahim.</strong>
+      </p>
+      <p class="dialogue-text">
+        Alhamdulillah, segala puji bagi Allah SWT kerana dengan izin dan rahmat-Nya, dapat kita berkumpul pada hari yang baik ini dalam suasana penuh kemesraan dan kekeluargaan.
+      </p>
+      <p class="dialogue-text">
+        Pertama sekali, bagi pihak keluarga Muhammad Naufal, saya ingin merakamkan setinggi-tinggi penghargaan dan ucapan terima kasih kepada keluarga Sarah, khususnya <strong>Encik Mohd Faizal dan Puan Rozila</strong>, kerana sudi menerima kehadiran serta kedatangan rombongan kami pada hari ini.
+      </p>
+      <p class="dialogue-text">
+        Untuk makluman semua, saya <strong>Nabil Haikal</strong>, merupakan abang kepada Naufal dan telah diberi amanah serta kepercayaan untuk menjadi wakil jurucakap keluarga bagi pihak lelaki.
+      </p>
+      <div class="stage-direction">
+        💡 <strong>Nota Tindakan:</strong> Berhenti seketika. Beri ruang sekiranya keluarga Sarah mahu memperkenalkan diri atau jurucakap mereka. Jika ada, taip nama mereka di kotak atas.
+      </div>
+    </article>
+
+    <!-- CARD 2: MENYAMPAIKAN HAJAT -->
+    <article class="section-card" id="card-2">
+      <div class="section-header">
+        <span class="section-badge">Bahagian 2</span>
+        <h2 class="section-title">Menyampaikan Hajat Rombongan</h2>
+      </div>
+      <p class="dialogue-text">
+        Sebelum saya meneruskan bicara, izinkan saya mulakan dengan serangkap pantun:
+      </p>
+      <div class="pantun-box">
+        Dari Selama Perak ke Taman Permata,<br>
+        Pergi menangkap sekawan ikan;<br>
+        Kami datang menyusun kata,<br>
+        Hendak menyunting bunga di taman.
+      </div>
+      <p class="dialogue-text">
+        Seperti yang pihak <span class="speaker-placeholder highlight-target">keluarga Sarah</span> sedia maklum, kedatangan kami pada hari ini bukanlah sekadar untuk bertandang atau mengeratkan tali silaturahim semata-mata, tetapi ada hajat besar yang kami bawa bersama.
+      </p>
+      <p class="dialogue-text">
+        Bak kata pepatah orang tua-tua, <em>kalau tiada angin, masakan pokok bergoyang. Kalau tiada hajat, takkanlah kami datang beramai-ramai.</em>
+      </p>
+      <p class="dialogue-text">
+        Alhamdulillah, setelah sekian lama Naufal dan Sarah saling mengenali budi dan pekerti, kami sebagai keluarga melihat hubungan ini sebagai sesuatu yang sangat baik dan murni, serta berharap agar ia dapat dibawa ke fasa yang lebih serius.
+      </p>
+      <p class="dialogue-text">
+        Justeru, dengan penuh rasa hormat dan rendah hati, kami hadir membawa hasrat untuk merisik dan seterusnya memohon persetujuan pihak keluarga agar Sarah dapat menjadi tunangan dan, insya-Allah, bakal isteri kepada adik kami, <strong>Muhammad Naufal</strong>.
+      </p>
+      <p class="dialogue-text">
+        Maka, bagi pihak keluarga Naufal, ingin saya bertanyakan kepada <span class="speaker-placeholder highlight-target">wakil keluarga Sarah</span>: <strong>Sudikah pihak keluarga menerima hajat dan niat baik yang kami bawa pada hari ini?</strong>
+      </p>
+      <div class="stage-direction">
+        ✋ <strong>Nota Tindakan:</strong> Berhenti sepenuhnya. Berikan masa dan ruang secukupnya kepada wakil pihak perempuan untuk menjawab.
+      </div>
+    </article>
+
+    <!-- CARD 3: PENERIMAAN HAJAT -->
+    <article class="section-card" id="card-3">
+      <div class="section-header">
+        <span class="section-badge">Bahagian 3</span>
+        <h2 class="section-title">Syukur Selepas Dipersetujui</h2>
+      </div>
+      <p class="dialogue-text">
+        <strong>Alhamdulillah, syukur ke hadrat Allah SWT.</strong>
+      </p>
+      <p class="dialogue-text">
+        Setinggi-tinggi terima kasih kami ucapkan kepada pihak keluarga Sarah kerana sudi menerima hasrat dan niat suci daripada keluarga kami ini.
+      </p>
+      <p class="dialogue-text">
+        Saya rasa lega yang amat sangat. Dari tadi berdebar juga takut tersalah susun kata. Maklumlah, risau datang beramai-ramai, balik nanti kena bawa balik Naufal seorang sahaja! <em>(senyum)</em>
+      </p>
+      <div class="stage-direction">
+        😄 <strong>Nota Tindakan:</strong> Berhenti sejenak untuk beri ruang suasana ceria &amp; tawa santai antara kedua-dua pihak.
+      </div>
+      <p class="dialogue-text">
+        Alhamdulillah, hajat yang kami bawa telah disambut dengan tangan terbuka dan hati yang lapang. Kami amat menghargai penerimaan ini dan mendoakan semoga pertemuan hari ini menjadi titik permulaan kepada jalinan ukhuwah serta hubungan kekeluargaan yang berkekalan.
+      </p>
+    </article>
+
+    <!-- CARD 4A: PERBINCANGAN KETETAPAN (SUSUNAN BARU) -->
+    <article class="section-card" id="card-4a">
+      <div class="section-header">
+        <span class="section-badge">Bahagian 4A</span>
+        <h2 class="section-title">Perbincangan Ketetapan &amp; Tarikh Nikah</h2>
+      </div>
+      <p class="dialogue-text">
+        Dengan izin pihak <span class="speaker-placeholder highlight-target">keluarga Sarah</span>, eloklah kiranya kita selaraskan bersama perkara-perkara berkaitan ketetapan majlis pernikahan agar segala keputusan mendapat persetujuan dan keberkatan bersama kedua-dua belah pihak.
+      </p>
+      <p class="dialogue-text">
+        Berkenaan mas kahwin dan wang hantaran, saya difahamkan perkara tersebut telah pun dibincangkan serta dipersetujui secara harmoni antara Naufal dan Sarah.
+      </p>
+      <p class="dialogue-text">
+        Untuk rekod dan kesepakatan bersama pada hari ini, pihak kami ingin berkongsi cadangan ketetapan:
+      </p>
+      <div class="points-list">
+        <ul>
+          <li><strong>Dulang Hantaran:</strong> <strong>3 dulang</strong> daripada pihak lelaki berbalas <strong>5 dulang</strong> daripada pihak perempuan.</li>
+          <li><strong>Cadangan Tarikh Pernikahan:</strong> Ditetapkan pada <strong>13 Ogos 2027</strong>.</li>
+          <li><strong>Tempoh Bertunang:</strong> Bermula hari ini sehingga tarikh pernikahan tersebut, moga ikatan ini terus terpelihara dengan baik.</li>
+        </ul>
+      </div>
+      <p class="dialogue-text">
+        Apa yang paling utama bagi kita adalah agar segala urusan ini dipermudahkan, tidak membebankan mana-mana pihak, dan beroleh barakah daripada Allah SWT.
+      </p>
+      <p class="dialogue-text">
+        Bagaimanakah pandangan pihak <span class="speaker-placeholder highlight-target">keluarga Sarah</span> berkenaan cadangan ketetapan ini?
+      </p>
+      <div class="stage-direction">
+        💬 <strong>Nota Tindakan:</strong> Beri ruang kepada wakil pihak perempuan untuk mengesahkan persetujuan ketetapan hantaran dan tarikh pernikahan (13 Ogos 2027).
+      </div>
+    </article>
+
+    <!-- CARD 4B: PENYERAHAN CINCIN & HANTARAN (SUSUNAN BARU) -->
+    <article class="section-card" id="card-4b">
+      <div class="section-header">
+        <span class="section-badge">Bahagian 4B</span>
+        <h2 class="section-title">Penyerahan Tanda Ikatan &amp; Cincin</h2>
+      </div>
+      <p class="dialogue-text">
+        Alhamdulillah, setelah kita capai kata sepakat dalam semua perkara, maka dengan penuh rasa sukacita kita sempurnakan ikatan pertunangan ini secara rasmi.
+      </p>
+      <p class="dialogue-text">
+        Sebagai tanda kesungguhan ikatan ini, pihak keluarga Muhammad Naufal berbesar hati menyerahkan <strong>sebentuk cincin pertunangan berserta hantaran yang telah disediakan</strong> sebagai tanda ingatan, kasih, dan penghormatan kepada pihak keluarga Sarah.
+      </p>
+      <p class="dialogue-text">
+        Kami mempersilakan wakil pihak keluarga Sarah untuk menyempurnakan upacara penyerahan dan penyarungan cincin pertunangan ini mengikut aturan majlis.
+      </p>
+      <div class="stage-direction">
+        💍 <strong>Nota Tindakan:</strong> Wakil wanita (ibu/kakak) tampil ke hadapan untuk menyarungkan cincin kepada Sarah diiringi penyerahan dulang hantaran.
+      </div>
+    </article>
+
+    <!-- CARD 5: PESANAN KEPADA PASANGAN -->
+    <article class="section-card" id="card-5">
+      <div class="section-header">
+        <span class="section-badge">Bahagian 5</span>
+        <h2 class="section-title">Pesanan Abang Buat Naufal &amp; Sarah</h2>
+      </div>
+      <p class="dialogue-text">
+        Sebagai seorang abang, saya ingin menitipkan sedikit pesanan ikhlas buat Naufal dan Sarah.
+      </p>
+      <p class="dialogue-text">
+        Memandangkan selepas ini kamu berdua telah rasmi mengikat tali pertunangan, jagalah diri, batas pergaulan, dan hubungan sebaik-baiknya sepanjang fasa ini.
+      </p>
+      <p class="dialogue-text">
+        Orang tua-tua berpesan, tempoh bertunang ini <em>"darah manis"</em>. Dugaan dan ujian pasti ada. Kuncinya adalah sentiasa banyakkan bersabar, saling memahami, bertolak ansur, serta elakkan perkara-perkara yang boleh mengeruhkan keharmonian.
+      </p>
+      <p class="dialogue-text">
+        Semoga Allah SWT memelihara hati kalian dan mempermudahkan setiap langkah persiapan sehinggalah ke hari pernikahan pada 13 Ogos 2027 nanti.
+      </p>
+    </article>
+
+    <!-- CARD 6: PENUTUP -->
+    <article class="section-card" id="card-6">
+      <div class="section-header">
+        <span class="section-badge">Bahagian 6</span>
+        <h2 class="section-title">Penutup &amp; Ucapan Terima Kasih</h2>
+      </div>
+      <p class="dialogue-text">
+        Akhir kata, kami daripada pihak keluarga Muhammad Naufal sekali lagi merakamkan ucapan setinggi-tinggi terima kasih kepada Encik Mohd Faizal, Puan Rozila, dan seluruh keluarga besar pihak perempuan atas sambutan yang sungguh mesra, juadah yang enak, dan layanan istimewa yang diberikan kepada kami pada hari ini.
+      </p>
+      <p class="dialogue-text">
+        Kami menyusun sepuluh jari memohon ampun dan maaf sekiranya terdapat sebarang kekhilafan, kekurangan adab, atau keterlanjuran kata sepanjang pertemuan ini berlangsung.
+      </p>
+      <p class="dialogue-text">
+        Tahniah diucapkan buat Naufal dan Sarah atas ikatan pertunangan ini. Semoga jalinan dua buah keluarga ini diberkati dan berkekalan hingga ke jannah.
+      </p>
+      <p class="dialogue-text">
+        Dengan itu, saya akhiri ucapan ini dengan lafaz yang mulia:<br>
+        <strong>Wabillahi taufik wal hidayah.</strong><br>
+        <strong>Wassalamualaikum warahmatullahi wabarakatuh.</strong>
+      </p>
+    </article>
+  </div>
+
+  <script>
+    function updateTargetName(val) {
+      const placeholders = document.querySelectorAll('.speaker-placeholder');
+      const cleanVal = val.trim();
+      placeholders.forEach(el => {
+        el.textContent = cleanVal ? cleanVal : 'keluarga Sarah';
+      });
+    }
+
+    let currentSize = 1.05;
+    function adjustFont(direction) {
+      currentSize += direction * 0.1;
+      if (currentSize < 0.85) currentSize = 0.85;
+      if (currentSize > 1.6) currentSize = 1.6;
+      document.querySelectorAll('.dialogue-text, .pantun-box, .points-list').forEach(el => {
+        el.style.fontSize = currentSize + 'rem';
+      });
+    }
+  </script>
+</body>
+</html>
