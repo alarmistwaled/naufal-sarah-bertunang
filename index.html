@@ -29,6 +29,11 @@
       padding: 0;
     }
 
+    html, body {
+      overflow-x: hidden;
+      width: 100%;
+    }
+
     body {
       background-color: var(--cream-bg);
       background-image: radial-gradient(#e7d3af 1px, transparent 1px);
@@ -36,13 +41,14 @@
       color: var(--dark-text);
       font-family: 'Plus Jakarta Sans', sans-serif;
       line-height: 1.7;
-      padding-bottom: 110px;
+      padding-bottom: 120px;
     }
 
     .container {
       max-width: 780px;
+      width: 100%;
       margin: 0 auto;
-      padding: 16px;
+      padding: 14px;
     }
 
     /* Top Sticky Header for Language & Wake Lock */
@@ -375,11 +381,20 @@
 
     .section-header {
       display: flex;
-      align-items: center;
-      gap: 12px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
       border-bottom: 1.5px solid var(--cream-bg);
       padding-bottom: 12px;
       margin-bottom: 14px;
+    }
+
+    @media (min-width: 600px) {
+      .section-header {
+        flex-direction: row;
+        align-items: center;
+        gap: 12px;
+      }
     }
 
     .section-badge {
@@ -387,19 +402,21 @@
       color: var(--mustard-soft);
       font-family: 'Cinzel', serif;
       font-weight: 700;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       padding: 4px 12px;
       border-radius: 20px;
-      letter-spacing: 1px;
+      letter-spacing: 0.8px;
       white-space: nowrap;
+      max-width: 100%;
     }
 
     .section-title {
       font-family: 'Cinzel', serif;
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       color: var(--wood-dark);
       font-weight: 700;
-      line-height: 1.3;
+      line-height: 1.35;
+      overflow-wrap: break-word;
     }
 
     .dialogue-text {
@@ -407,6 +424,7 @@
       line-height: 1.85;
       color: var(--dark-text);
       margin-bottom: 14px;
+      overflow-wrap: break-word;
     }
 
     .pantun-box {
@@ -434,13 +452,14 @@
       background: #F4EAD4;
       border: 1px dashed var(--gold-deep);
       border-radius: 10px;
-      padding: 10px 14px;
+      padding: 12px 14px;
       font-size: 0.95rem;
+      line-height: 1.65;
       color: var(--wood-dark);
       margin-top: 14px;
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
+      display: block;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
     }
 
     .highlight-target {
@@ -498,25 +517,32 @@
     /* FLOATING QUICK JUMP NAVIGATION BAR */
     .quick-jump-bar {
       position: fixed;
-      bottom: 12px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: calc(100% - 24px);
+      bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+      left: 12px;
+      right: 12px;
+      margin: 0 auto;
       max-width: 760px;
-      background: rgba(43, 23, 6, 0.92);
+      background: rgba(43, 23, 6, 0.94);
       backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border: 1.5px solid var(--gold-light);
       border-radius: 40px;
       padding: 6px 10px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: flex-start;
       gap: 6px;
       overflow-x: auto;
       z-index: 1000;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
+    }
+
+    @media (min-width: 640px) {
+      .quick-jump-bar {
+        justify-content: space-between;
+      }
     }
 
     .quick-jump-bar::-webkit-scrollbar {
