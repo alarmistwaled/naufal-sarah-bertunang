@@ -781,6 +781,43 @@
       margin: 20px 0;
     }
 
+    .prompter-tap-hint {
+      text-align: center;
+      font-size: 0.95rem;
+      color: var(--mustard-soft);
+      background: rgba(249, 218, 121, 0.1);
+      border: 1px dashed rgba(249, 218, 121, 0.4);
+      border-radius: 30px;
+      padding: 8px 16px;
+      margin: 10px auto 24px auto;
+      max-width: 520px;
+    }
+
+    .prompter-tap-toast {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.9);
+      background: rgba(26, 15, 5, 0.92);
+      border: 2px solid var(--gold-primary);
+      color: var(--mustard-soft);
+      padding: 14px 26px;
+      border-radius: 50px;
+      font-size: 1.25rem;
+      font-weight: 800;
+      z-index: 17000;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      white-space: nowrap;
+    }
+
+    .prompter-tap-toast.show {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
     /* Print Styles */
     @media print {
       body {
@@ -1251,6 +1288,8 @@
       </div>
     </div>
 
+    <div id="prompterTapToast" class="prompter-tap-toast">⏸ Berhenti</div>
+
     <div class="prompter-content" id="prompterContent">
       <!-- Injected dynamically via JS -->
     </div>
@@ -1642,7 +1681,10 @@
       const overlay = document.getElementById('prompterOverlay');
       const content = document.getElementById('prompterContent');
       
-      let html = '';
+      const tapHintText = currentLang === 'en'
+        ? '👆 Tap anywhere on screen to Play / Pause auto-scroll'
+        : '👆 Ketuk (tap) mana-mana bahagian skrin untuk Mula / Berhenti auto-scroll';
+      let html = `<div class="prompter-tap-hint">${tapHintText}</div>`;
       const cards = document.querySelectorAll('.section-card');
       cards.forEach(card => {
         const titleEl = card.querySelector('.section-title');
@@ -1766,15 +1808,71 @@
       document.getElementById('prompterContent').style.fontSize = prompterFontSize + 'rem';
     }
 
-    // Pause on manual touch scroll to avoid fighting user finger gestures
+    // Tap anywhere on screen to Play/Pause, or swipe to manual-scroll
+    let tapToastTimer = null;
+    function showPrompterToast(msg) {
+      const toast = document.getElementById('prompterTapToast');
+      if (!toast) return;
+      toast.innerHTML = msg;
+      toast.classList.add('show');
+      if (tapToastTimer) clearTimeout(tapToastTimer);
+      tapToastTimer = setTimeout(() => {
+        toast.classList.remove('show');
+      }, 750);
+    }
+
     const prompterOverlayEl = document.getElementById('prompterOverlay');
     if (prompterOverlayEl) {
+      let touchStartX = 0;
+      let touchStartY = 0;
+      let touchStartTime = 0;
+      let didTouchMove = false;
+      let lastTouchEndTime = 0;
+
       prompterOverlayEl.addEventListener('touchstart', (e) => {
-        // Only if touch is not on the control bar
-        if (!e.target.closest('.prompter-nav-bar') && isScrolling) {
-          stopAutoScroll();
+        if (e.target.closest('.prompter-nav-bar')) return;
+        const t = e.touches[0];
+        touchStartX = t.clientX;
+        touchStartY = t.clientY;
+        touchStartTime = Date.now();
+        didTouchMove = false;
+      }, { passive: true });
+
+      prompterOverlayEl.addEventListener('touchmove', (e) => {
+        if (e.target.closest('.prompter-nav-bar')) return;
+        const t = e.touches[0];
+        if (Math.abs(t.clientY - touchStartY) > 10 || Math.abs(t.clientX - touchStartX) > 10) {
+          didTouchMove = true;
+          // If user drags finger to scroll manually, pause auto-scroll so it doesn't fight their finger
+          if (isScrolling) {
+            stopAutoScroll();
+          }
         }
       }, { passive: true });
+
+      prompterOverlayEl.addEventListener('touchend', (e) => {
+        if (e.target.closest('.prompter-nav-bar')) return;
+        const elapsed = Date.now() - touchStartTime;
+        if (!didTouchMove && elapsed < 450) {
+          lastTouchEndTime = Date.now();
+          togglePrompterPlay();
+          const toastMsg = isScrolling
+            ? (currentLang === 'en' ? '▶ Scrolling' : '▶ Auto-Scroll Jalan')
+            : (currentLang === 'en' ? '⏸ Paused' : '⏸ Berhenti Seketika');
+          showPrompterToast(toastMsg);
+        }
+      }, { passive: true });
+
+      // Desktop / mouse click support (ignored if triggered right after touch)
+      prompterOverlayEl.addEventListener('click', (e) => {
+        if (e.target.closest('.prompter-nav-bar')) return;
+        if (Date.now() - lastTouchEndTime < 500) return;
+        togglePrompterPlay();
+        const toastMsg = isScrolling
+          ? (currentLang === 'en' ? '▶ Scrolling' : '▶ Auto-Scroll Jalan')
+          : (currentLang === 'en' ? '⏸ Paused' : '⏸ Berhenti Seketika');
+        showPrompterToast(toastMsg);
+      });
     }
 
     /* Highlight Active Jump Button on Scroll */
