@@ -350,6 +350,29 @@
       scroll-margin-top: 20px;
     }
 
+    .section-card.speak-card {
+      border: 2px solid var(--gold-primary);
+      box-shadow: 0 6px 20px rgba(197, 139, 36, 0.15);
+      background: #FFFFFF;
+    }
+
+    .section-card.cue-card {
+      background: #FCF9F2;
+      border: 1.5px dashed var(--gold-deep);
+    }
+
+    .badge-speak {
+      background: linear-gradient(135deg, #1B5E20, #2E7D32) !important;
+      color: #E8F5E9 !important;
+      border: 1px solid #81C784;
+    }
+
+    .badge-listen {
+      background: linear-gradient(135deg, #5C3205, #794210) !important;
+      color: #FFF3D6 !important;
+      border: 1px solid var(--gold-light);
+    }
+
     .section-header {
       display: flex;
       align-items: center;
@@ -845,11 +868,43 @@
       </div>
     </div>
 
-    <!-- CARD 1: OPENING / PEMBUKAAN -->
-    <article class="section-card" id="sec-1">
+    <!-- KAD 0: 11:30 AM KETIBAAN & PERSIAPAN -->
+    <article class="section-card cue-card" id="sec-tiba">
       <div class="section-header">
-        <span class="section-badge" data-key="badge_sec1">1. PEMBUKAAN</span>
-        <h2 class="section-title" data-key="title_sec1">Pembukaan</h2>
+        <span class="section-badge badge-listen" data-key="badge_tiba">11:30 AM · PERSIAPAN</span>
+        <h2 class="section-title" data-key="title_tiba">Ketibaan Rombongan &amp; Susun Dulang</h2>
+      </div>
+      <div class="stage-direction" data-key="tiba_note1">
+        🚪 <strong>Langkah 1:</strong> Keluarga perempuan menyambut ketibaan rombongan Naufal di Tim's Tea House Cafe. Tetamu lelaki dipersilakan ke tempat duduk yang disediakan.
+      </div>
+      <div class="stage-direction" data-key="tiba_note2" style="background: #FFF8EA; border-color: var(--gold-primary);">
+        🎁 <strong>Langkah 2:</strong> Wakil keluarga lelaki meletakkan <strong>3 dulang hantaran</strong> di meja hantaran yang telah dikhaskan.
+      </div>
+      <div class="stage-direction" data-key="tiba_note3" style="background: #E8F5E9; border-color: #81C784;">
+        🟢 <strong>Langkah 3 (Penting):</strong> Wakil keluarga lelaki memberi <strong>SIGNAL READY</strong> kepada pihak perempuan &amp; Syakir (Moderator) untuk memulakan peringkat perbincangan.
+      </div>
+    </article>
+
+    <!-- KAD PERANTARA: 11:45 AM PEMBUKAAN OLEH MODERATOR & KELUARGA PEREMPUAN -->
+    <article class="section-card cue-card" id="sec-aluan">
+      <div class="section-header">
+        <span class="section-badge badge-listen" data-key="badge_aluan">11:45 AM · ALUAN</span>
+        <h2 class="section-title" data-key="title_aluan">Pembukaan Majlis &amp; Ucapan Pihak Perempuan</h2>
+      </div>
+      <p class="dialogue-text" data-key="aluan_desc" style="color: var(--wood-accent); font-style: italic;">
+        1. <strong>Syakir (Moderator):</strong> Membuat pembuka kata alu-aluan majlis dan menjemput bacaan doa pembuka majlis.<br>
+        2. <strong>Wakil Keluarga Perempuan:</strong> Menyampaikan kata selamat datang dan ucapan terima kasih kepada rombongan Naufal.
+      </p>
+      <div class="stage-direction" data-key="aluan_note">
+        👂 <strong>Panduan Nabil:</strong> Dengar pengenalan daripada pihak perempuan (ingat/taip nama jurucakap perempuan di kotak atas). Bersedia untuk giliran bercakap seterusnya.
+      </div>
+    </article>
+
+    <!-- KAD 1: 11:50 AM GILIRAN 1 NABIL (UCAPAN BALAS & MENYAMPAIKAN HAJAT) -->
+    <article class="section-card speak-card" id="sec-giliran1">
+      <div class="section-header">
+        <span class="section-badge badge-speak" data-key="badge_giliran1">🎙️ 11:50 AM · GILIRAN 1 NABIL</span>
+        <h2 class="section-title" data-key="title_giliran1">Ucapan Balas &amp; Menyampaikan Hajat</h2>
       </div>
       <p class="dialogue-text">
         <strong>Assalamualaikum warahmatullahi wabarakatuh.</strong><br>
@@ -864,19 +919,8 @@
       <p class="dialogue-text" data-key="s1_p3">
         Untuk makluman semua, saya <strong>Nabil Haikal</strong> merupakan abang kepada Naufal dan telah diberi amanah untuk menjadi wakil jurucakap keluarga pihak lelaki.
       </p>
-      <div class="stage-direction" data-key="s1_note">
-        💡 <strong>Nota Tindakan:</strong> (Diam kejap kot2 keluarga Sarah ada yang perkenalkan diri, ingat nama orang tu)
-      </div>
-    </article>
-
-    <!-- CARD 2: CONVEYING INTENT / MENYAMPAIKAN HAJAT -->
-    <article class="section-card" id="sec-2">
-      <div class="section-header">
-        <span class="section-badge" data-key="badge_sec2">2. MENYAMPAIKAN HAJAT</span>
-        <h2 class="section-title" data-key="title_sec2">Menyampaikan Hajat</h2>
-      </div>
-      <p class="dialogue-text" data-key="s2_p1">
-        Sebelum saya teruskan, izinkan saya mulakan dengan serangkap pantun.
+      <p class="dialogue-text" data-key="s2_p1" style="margin-top: 18px;">
+        Sebelum saya teruskan, izinkan saya mulakan dengan serangkap pantun:
       </p>
       <div class="pantun-box">
         Dari Selama Perak ke Taman Permata,<br>
@@ -902,17 +946,38 @@
       <p class="dialogue-text" data-key="s2_p6">
         Maka, bagi pihak keluarga Naufal, ingin saya bertanya kepada <span class="speaker-placeholder highlight-target">wakil keluarga Sarah</span>, <strong>sudikah pihak keluarga menerima hajat dan niat baik yang kami bawa pada hari ini?</strong>
       </p>
-      <div class="stage-direction" data-key="s2_note">
-        ✋ <strong>Nota Tindakan:</strong> (Berhenti seketika dan beri ruang kepada wakil pihak perempuan untuk menjawab.)
+      <div class="stage-direction" data-key="giliran1_endnote">
+        ✋ <strong>Isyarat Henti Giliran 1:</strong> Berhenti seketika dan beri ruang kepada wakil pihak perempuan untuk menjawab serta menyatakan harga &amp; syarat.
       </div>
     </article>
 
-    <!-- CARD 3: GRATITUDE UPON ACCEPTANCE / SELEPAS PIHAK PEREMPUAN BERSETUJU -->
-    <article class="section-card" id="sec-3">
+    <!-- KAD PERANTARA: 11:55 AM SYARAT PIHAK PEREMPUAN -->
+    <article class="section-card cue-card" id="sec-syarat">
       <div class="section-header">
-        <span class="section-badge" data-key="badge_sec3">3. SELEPAS BERSETUJU</span>
-        <h2 class="section-title" data-key="title_sec3">Selepas Pihak Perempuan Bersetuju</h2>
+        <span class="section-badge badge-listen" data-key="badge_syarat">11:55 AM · SYARAT PEREMPUAN</span>
+        <h2 class="section-title" data-key="title_syarat">Pihak Perempuan Menyebut Harga &amp; Syarat</h2>
       </div>
+      <p class="dialogue-text" data-key="syarat_desc" style="color: var(--wood-accent);">
+        Wakil keluarga perempuan akan menyatakan ketetapan dan syarat seperti berikut:
+      </p>
+      <ul class="points-list">
+        <li data-key="syarat_li1"><strong>Tarikh Nikah:</strong> 13 Ogos 2027 (13/8/27).</li>
+        <li data-key="syarat_li2"><strong>Duit Hantaran &amp; Mas Kahwin:</strong> Seperti yang telah dibincangkan antara Naufal &amp; Sarah.</li>
+        <li data-key="syarat_li3"><strong>Tempoh Pertunangan:</strong> Hingga ke tarikh nikah (Ikat hidup).</li>
+      </ul>
+      <div class="stage-direction" data-key="syarat_note">
+        👂 <strong>Panduan Nabil:</strong> Dengar syarat yang disebutkan. Apabila pihak perempuan selesai dan menyerahkan kembali kata-kata, teruskan dengan <strong>GILIRAN 2</strong> di bawah.
+      </div>
+    </article>
+
+    <!-- KAD 2: 11:57 AM GILIRAN 2 NABIL (KEPUTUSAN SYARAT, PENYERAHAN CINCIN & PESANAN ABANG) -->
+    <article class="section-card speak-card" id="sec-giliran2">
+      <div class="section-header">
+        <span class="section-badge badge-speak" data-key="badge_giliran2">🎙️ 11:57 AM · GILIRAN 2 NABIL</span>
+        <h2 class="section-title" data-key="title_giliran2">Keputusan Syarat, Cincin &amp; Pesanan</h2>
+      </div>
+
+      <!-- Bahagian Kesyukuran & Seloroh -->
       <p class="dialogue-text">
         <strong>Alhamdulillah, syukur ke hadrat Allah SWT.</strong>
       </p>
@@ -931,110 +996,112 @@
       <p class="dialogue-text" data-key="s3_p4">
         Bagi pihak keluarga Naufal, kami amat menghargai penerimaan ini dan berharap agar pertemuan pada hari ini menjadi titik permulaan kepada hubungan kekeluargaan yang lebih erat antara kedua-dua belah pihak..
       </p>
+
+      <!-- Bahagian Keputusan Rasmi Terhadap Syarat -->
+      <div style="border-top: 1.5px dashed var(--border-gold); padding-top: 16px; margin-top: 16px;">
+        <span class="section-badge" style="background: var(--gold-primary); color: #1A0E04; font-size: 0.75rem; margin-bottom: 8px; display: inline-block;" data-key="subbadge_terma">KEPUTUSAN KETETAPAN</span>
+        <p class="dialogue-text" data-key="s4a_p1">
+          Dengan persetujuan yang telah diberikan, maka kita bolehlah meneruskan kepada urusan pertunangan.
+        </p>
+        <p class="dialogue-text" data-key="s4a_p2">
+          Berkenaan perkara lain seperti mas kahwin dan wang hantaran, saya difahamkan perkara tersebut telah pun dibincangkan antara Naufal dan Sarah.
+        </p>
+        <p class="dialogue-text" data-key="s4a_p3">
+          Seterusnya, berhubung perkara-perkara lain seperti tempoh pertunangan, cadangan tarikh pernikahan serta persiapan yang berkaitan, bolehlah kita berbincang bersama-sama agar segala keputusan mendapat persetujuan dan kesepakatan kedua-dua belah keluarga.
+        </p>
+        <p class="dialogue-text" data-key="s4a_p4">
+          Pihak kami juga telah dimaklumkan, berdasarkan perbincangan mereka:
+        </p>
+        <ul class="points-list">
+          <li data-key="s4a_li1"><strong>Dulang hantaran:</strong> 3 dulang daripada pihak lelaki dan 5 dulang daripada pihak perempuan. (Kekal seperti hantaran pertunangan).</li>
+          <li data-key="s4a_li2"><strong>Tarikh pernikahan:</strong> 13 Ogos 2027.</li>
+        </ul>
+        <p class="dialogue-text" data-key="s4a_p5">
+          Berkenaan tempoh pertunangan pula, memandangkan tarikh pernikahan telah dirancang pada 13 Ogos 2027, kami berharap ikatan pertunangan ini dapat dijaga dengan baik sehingga tiba hari yang dinanti-nantikan.
+        </p>
+        <p class="dialogue-text" data-key="s4a_p6">
+          Apa yang penting, biarlah segala urusan ini dipermudahkan, tidak membebankan mana-mana pihak dan mendapat keberkatan daripada Allah SWT.
+        </p>
+        <p class="dialogue-text" data-key="s4a_p7">
+          Insya-Allah, kalau tiada aral melintang, kita bukan sekadar mengikat tali pertunangan, tetapi menuju kepada ikatan perkahwinan yang berkekalan hingga ke akhir hayat.
+        </p>
+        <p class="dialogue-text" data-key="s4a_p8">
+          Apa pun, kami terbuka untuk berbincang dan berharap segala urusan ini mendapat persetujuan kedua-dua belah pihak.
+        </p>
+        <p class="dialogue-text" data-key="s4a_p9">
+          Kami berharap segala yang dipersetujui pada hari ini menjadi permulaan yang baik untuk Naufal dan Sarah.
+        </p>
+      </div>
+
+      <!-- Bahagian Penyerahan Cincin & Hantaran -->
+      <div style="border-top: 1.5px dashed var(--border-gold); padding-top: 16px; margin-top: 16px;">
+        <span class="section-badge" style="background: var(--gold-deep); color: #FFF; font-size: 0.75rem; margin-bottom: 8px; display: inline-block;" data-key="subbadge_cincin">PENYERAHAN CINCIN</span>
+        <p class="dialogue-text" data-key="s4b_p1">
+          Sebagai tanda kesungguhan dan ikatan pertunangan ini, pihak keluarga Muhammad Naufal ingin menyerahkan sebentuk cincin pertunangan berserta hantaran yang telah disediakan sebagai tanda ingatan dan penghargaan kepada pihak keluarga Sarah.
+        </p>
+        <p class="dialogue-text" data-key="s4b_p2">
+          Kami berharap agar wakil keluarga Sarah dapat menerima tanda pertunangan yang kami sediakan ini.
+        </p>
+        <div class="stage-direction" data-key="s4b_note">
+          💍 <strong>Nota Tindakan:</strong> (Berikan ruang untuk urusan penyerahan cincin dan hantaran mengikut susunan majlis. Wakil wanita tampil menyarungkan cincin.)
+        </div>
+      </div>
+
+      <!-- Bahagian Pesanan Abang -->
+      <div style="border-top: 1.5px dashed var(--border-gold); padding-top: 16px; margin-top: 16px;">
+        <span class="section-badge" style="background: var(--wood-accent); color: #FFF; font-size: 0.75rem; margin-bottom: 8px; display: inline-block;" data-key="subbadge_pesanan">PESANAN ABANG</span>
+        <p class="dialogue-text" data-key="s5_p1">
+          Sebagai abang, saya cuma nak pesan kepada Naufal dan Sarah, memandangkan selepas ini kamu berdua sudah bergelar tunangan, jagalah diri dan jagalah hubungan sebaik-baiknya sepanjang tempoh pertunangan ini.
+        </p>
+        <p class="dialogue-text" data-key="s5_p2">
+          Orang kata, tempoh bertunang ni darah manis. Jadi, banyakkan bersabar, saling memahami dan elakkan perkara yang boleh menjejaskan hubungan.
+        </p>
+        <p class="dialogue-text" data-key="s5_p3">
+          Semoga segala urusan dipermudahkan sehingga hari pernikahan nanti.
+        </p>
+      </div>
+
+      <!-- Bahagian Penutup Ucapan Nabil -->
+      <div style="border-top: 1.5px dashed var(--border-gold); padding-top: 16px; margin-top: 16px;">
+        <span class="section-badge" style="background: var(--wood-dark); color: var(--mustard-soft); font-size: 0.75rem; margin-bottom: 8px; display: inline-block;" data-key="subbadge_penutup">PENUTUP KATA WAKIL LELAKI</span>
+        <p class="dialogue-text" data-key="s6_p1">
+          Akhir kata, kami daripada pihak keluarga Muhammad Naufal ingin mengucapkan ribuan terima kasih kepada keluarga Sarah atas sambutan dan layanan yang diberikan kepada kami pada hari ini.
+        </p>
+        <p class="dialogue-text" data-key="s6_p2">
+          Kami juga menyusun sepuluh jari memohon ampun dan maaf sekiranya terdapat sebarang kekurangan, keterlanjuran kata atau perkara yang kurang menyenangkan sepanjang pertemuan ini.
+        </p>
+        <p class="dialogue-text" data-key="s6_p3">
+          Semoga hubungan Naufal dan Sarah dipermudahkan sehingga ke alam perkahwinan dan semoga hubungan antara kedua-dua keluarga ini terus erat selepas hari ini.
+        </p>
+        <p class="dialogue-text" data-key="s6_p4">
+          Kepada Naufal dan Sarah, tahniah atas ikatan pertunangan ini.
+        </p>
+        <p class="dialogue-text" data-key="s6_p5">
+          Semoga Allah SWT sentiasa memelihara hubungan kalian, menyatukan hati dalam kebaikan dan mempermudahkan perjalanan kalian menuju sebuah perkahwinan yang diberkati.
+        </p>
+        <p class="dialogue-text">
+          Dengan itu, saya akhiri ucapan ini dengan lafaz:<br>
+          <strong>Wabillahi taufik wal hidayah.</strong><br>
+          <strong>Wassalamualaikum warahmatullahi wabarakatuh.</strong>
+        </p>
+      </div>
     </article>
 
-    <!-- CARD 4A: PERBINCANGAN KETETAPAN & PERSIAPAN DAHULU -->
-    <article class="section-card" id="sec-4a">
+    <!-- KAD 3: 12:00 PM PENUTUP & JAMUAN MAKAN -->
+    <article class="section-card cue-card" id="sec-jamuan">
       <div class="section-header">
-        <span class="section-badge" data-key="badge_sec4a">4A. PERBINCANGAN</span>
-        <h2 class="section-title" data-key="title_sec4a">Perbincangan Ketetapan &amp; Tarikh Pernikahan</h2>
+        <span class="section-badge badge-listen" data-key="badge_jamuan">12:00 PM · JAMUAN</span>
+        <h2 class="section-title" data-key="title_jamuan">Penutup Perbincangan &amp; Menjamu Selera</h2>
       </div>
-      <p class="dialogue-text" data-key="s4a_p1">
-        Dengan persetujuan yang telah diberikan, maka kita bolehlah meneruskan kepada urusan pertunangan.
+      <p class="dialogue-text" data-key="jamuan_desc" style="color: var(--wood-accent); font-style: italic;">
+        1. <strong>Wakil Keluarga Perempuan:</strong> Menyampaikan kata simbolik penerimaan dan ucapan terima kasih.<br>
+        2. <strong>Syakir (Moderator):</strong> Membuat kata-kata tutupan perbincangan untuk beralih ke peringkat jamuan.<br>
+        3. <strong>Wakil Keluarga Perempuan:</strong> Membaca DOA penutup majlis.<br>
+        4. <strong>Jemputan Makan:</strong> Semua tetamu dipersilakan menjamu selera sehingga majlis tamat jam 2:00 petang.
       </p>
-      <p class="dialogue-text" data-key="s4a_p2">
-        Berkenaan perkara lain seperti mas kahwin dan wang hantaran, saya difahamkan perkara tersebut telah pun dibincangkan antara Naufal dan Sarah.
-      </p>
-      <p class="dialogue-text" data-key="s4a_p3">
-        Seterusnya, berhubung perkara-perkara lain seperti tempoh pertunangan, cadangan tarikh pernikahan serta persiapan yang berkaitan, bolehlah kita berbincang bersama-sama agar segala keputusan mendapat persetujuan dan kesepakatan kedua-dua belah keluarga.
-      </p>
-      <p class="dialogue-text" data-key="s4a_p4">
-        Pihak kami juga telah dimaklumkan, berdasarkan perbincangan mereka:
-      </p>
-      <ul class="points-list">
-        <li data-key="s4a_li1"><strong>Dulang hantaran:</strong> 3 dulang daripada pihak lelaki dan 5 dulang daripada pihak perempuan. (Kekal seperti hantaran pertunangan).</li>
-        <li data-key="s4a_li2"><strong>Tarikh pernikahan:</strong> 13 Ogos 2027.</li>
-      </ul>
-      <p class="dialogue-text" data-key="s4a_p5">
-        Berkenaan tempoh pertunangan pula, memandangkan tarikh pernikahan telah dirancang pada 13 Ogos 2027, kami berharap ikatan pertunangan ini dapat dijaga dengan baik sehingga tiba hari yang dinanti-nantikan.
-      </p>
-      <p class="dialogue-text" data-key="s4a_p6">
-        Apa yang penting, biarlah segala urusan ini dipermudahkan, tidak membebankan mana-mana pihak dan mendapat keberkatan daripada Allah SWT.
-      </p>
-      <p class="dialogue-text" data-key="s4a_p7">
-        Insya-Allah, kalau tiada aral melintang, kita bukan sekadar mengikat tali pertunangan, tetapi menuju kepada ikatan perkahwinan yang berkekalan hingga ke akhir hayat.
-      </p>
-      <p class="dialogue-text" data-key="s4a_p8">
-        Apa pun, kami terbuka untuk berbincang dan berharap segala urusan ini mendapat persetujuan kedua-dua belah pihak.
-      </p>
-      <p class="dialogue-text" data-key="s4a_p9">
-        Kami berharap segala yang dipersetujui pada hari ini menjadi permulaan yang baik untuk Naufal dan Sarah.
-      </p>
-      <div class="stage-direction" data-key="s4a_note">
-        💬 <strong>Nota Tindakan:</strong> (Beri ruang untuk berbincang serta mengesahkan persetujuan ketetapan hantaran 3:5 dan tarikh nikah 13 Ogos 2027.)
+      <div class="stage-direction" data-key="jamuan_note">
+        🍽️ <strong>Selesai:</strong> Rombongan lelaki menikmati juadah dan sesi ramah mesra bersama keluarga Sarah.
       </div>
-    </article>
-
-    <!-- CARD 4B: PENYERAHAN CINCIN & HANTARAN SELEPAS PERBINCANGAN -->
-    <article class="section-card" id="sec-4b">
-      <div class="section-header">
-        <span class="section-badge" data-key="badge_sec4b">4B. PENYERAHAN</span>
-        <h2 class="section-title" data-key="title_sec4b">Penyerahan Cincin &amp; Hantaran</h2>
-      </div>
-      <p class="dialogue-text" data-key="s4b_p1">
-        Sebagai tanda kesungguhan dan ikatan pertunangan ini, pihak keluarga Muhammad Naufal ingin menyerahkan sebentuk cincin pertunangan berserta hantaran yang telah disediakan sebagai tanda ingatan dan penghargaan kepada pihak keluarga Sarah.
-      </p>
-      <p class="dialogue-text" data-key="s4b_p2">
-        Kami berharap agar wakil keluarga Sarah dapat menerima tanda pertunangan yang kami sediakan ini.
-      </p>
-      <div class="stage-direction" data-key="s4b_note">
-        💍 <strong>Nota Tindakan:</strong> (Berikan ruang untuk urusan penyerahan cincin dan hantaran mengikut susunan majlis.)
-      </div>
-    </article>
-
-    <!-- CARD 5: PESANAN ABANG KEPADA NAUFAL DAN SARAH -->
-    <article class="section-card" id="sec-5">
-      <div class="section-header">
-        <span class="section-badge" data-key="badge_sec5">5. PESANAN ABANG</span>
-        <h2 class="section-title" data-key="title_sec5">Pesanan Abang Kepada Naufal &amp; Sarah</h2>
-      </div>
-      <p class="dialogue-text" data-key="s5_p1">
-        Sebagai abang, saya cuma nak pesan kepada Naufal dan Sarah, memandangkan selepas ini kamu berdua sudah bergelar tunangan, jagalah diri dan jagalah hubungan sebaik-baiknya sepanjang tempoh pertunangan ini.
-      </p>
-      <p class="dialogue-text" data-key="s5_p2">
-        Orang kata, tempoh bertunang ni darah manis. Jadi, banyakkan bersabar, saling memahami dan elakkan perkara yang boleh menjejaskan hubungan.
-      </p>
-      <p class="dialogue-text" data-key="s5_p3">
-        Semoga segala urusan dipermudahkan sehingga hari pernikahan nanti.
-      </p>
-    </article>
-
-    <!-- CARD 6: PENUTUP -->
-    <article class="section-card" id="sec-6">
-      <div class="section-header">
-        <span class="section-badge" data-key="badge_sec6">6. PENUTUP</span>
-        <h2 class="section-title" data-key="title_sec6">Penutup</h2>
-      </div>
-      <p class="dialogue-text" data-key="s6_p1">
-        Akhir kata, kami daripada pihak keluarga Muhammad Naufal ingin mengucapkan ribuan terima kasih kepada keluarga Sarah atas sambutan dan layanan yang diberikan kepada kami pada hari ini.
-      </p>
-      <p class="dialogue-text" data-key="s6_p2">
-        Kami juga menyusun sepuluh jari memohon ampun dan maaf sekiranya terdapat sebarang kekurangan, keterlanjuran kata atau perkara yang kurang menyenangkan sepanjang pertemuan ini.
-      </p>
-      <p class="dialogue-text" data-key="s6_p3">
-        Semoga hubungan Naufal dan Sarah dipermudahkan sehingga ke alam perkahwinan dan semoga hubungan antara kedua-dua keluarga ini terus erat selepas hari ini.
-      </p>
-      <p class="dialogue-text" data-key="s6_p4">
-        Kepada Naufal dan Sarah, tahniah atas ikatan pertunangan ini.
-      </p>
-      <p class="dialogue-text" data-key="s6_p5">
-        Semoga Allah SWT sentiasa memelihara hubungan kalian, menyatukan hati dalam kebaikan dan mempermudahkan perjalanan kalian menuju sebuah perkahwinan yang diberkati.
-      </p>
-      <p class="dialogue-text">
-        Dengan itu, saya akhiri ucapan ini dengan lafaz:<br>
-        <strong>Wabillahi taufik wal hidayah.</strong><br>
-        <strong>Wassalamualaikum warahmatullahi wabarakatuh.</strong>
-      </p>
     </article>
 
     <!-- Poster Closing Blessing Card -->
@@ -1051,13 +1118,12 @@
 
   <!-- FLOATING BOTTOM QUICK-JUMP NAVIGATION -->
   <nav class="quick-jump-bar" aria-label="Quick Jump Navigation">
-    <a href="#sec-1" class="jump-btn" data-key="jump_s1">1. Salam</a>
-    <a href="#sec-2" class="jump-btn" data-key="jump_s2">2. Hajat</a>
-    <a href="#sec-3" class="jump-btn" data-key="jump_s3">3. Syukur</a>
-    <a href="#sec-4a" class="jump-btn" data-key="jump_s4a">4A. Terma (3:5)</a>
-    <a href="#sec-4b" class="jump-btn" data-key="jump_s4b">4B. Cincin</a>
-    <a href="#sec-5" class="jump-btn" data-key="jump_s5">5. Pesanan</a>
-    <a href="#sec-6" class="jump-btn" data-key="jump_s6">6. Penutup</a>
+    <a href="#sec-tiba" class="jump-btn" data-key="jump_s1">11:30 Tiba</a>
+    <a href="#sec-aluan" class="jump-btn" data-key="jump_s2">11:45 Aluan</a>
+    <a href="#sec-giliran1" class="jump-btn" data-key="jump_s3">🎙️ Giliran 1: Hajat</a>
+    <a href="#sec-syarat" class="jump-btn" data-key="jump_s4">Syarat</a>
+    <a href="#sec-giliran2" class="jump-btn" data-key="jump_s5">🎙️ Giliran 2: Cincin</a>
+    <a href="#sec-jamuan" class="jump-btn" data-key="jump_s6">12:00 Jamuan</a>
   </nav>
 
   <!-- MODAL: SPARE PANTUN REPOSITORY -->
@@ -1192,34 +1258,48 @@
         btn_print: "🖨️ Cetak",
         dua_translation: "\"Wahai Tuhanku, lapangkanlah dadaku, mudahkanlah tugasku, dan lepaskanlah simpulan dari lidahku agar mereka memahami perkataanku.\" (Surah Ta-Ha: 25-28)",
 
-        badge_sec1: "1. PEMBUKAAN",
-        title_sec1: "Pembukaan",
-        s1_p1: "Alhamdulillah, segala puji bagi Allah SWT kerana dengan izin dan rahmat-Nya, dapat kita berkumpul pada hari yang baik ini dalam suasana penuh kemesraan dan kekeluargaan.",
-        s1_p2: "Pertama sekali, bagi pihak keluarga Muhammad Naufal, saya ingin merakamkan setinggi-tinggi penghargaan dan ucapan terima kasih kepada keluarga Sarah (<strong>En Mohd Faizal & Pn Rozila</strong>) kerana sudi menerima kedatangan kami pada hari ini.",
-        s1_p3: "Untuk makluman semua, saya <strong>Nabil Haikal</strong> merupakan abang kepada Naufal dan telah diberi amanah untuk menjadi wakil jurucakap keluarga pihak lelaki.",
-        s1_note: "💡 <strong>Nota Tindakan:</strong> (Diam kejap kot2 keluarga Sarah ada yang perkenalkan diri, ingat nama orang tu)",
+        /* Aturcara Baharu */
+        badge_tiba: "11:30 AM · PERSIAPAN",
+        title_tiba: "Ketibaan Rombongan &amp; Susun Dulang",
+        tiba_note1: "🚪 <strong>Langkah 1:</strong> Keluarga perempuan menyambut ketibaan rombongan Naufal di Tim's Tea House Cafe. Tetamu lelaki dipersilakan ke tempat duduk yang disediakan.",
+        tiba_note2: "🎁 <strong>Langkah 2:</strong> Wakil keluarga lelaki meletakkan <strong>3 dulang hantaran</strong> di meja hantaran yang telah dikhaskan.",
+        tiba_note3: "🟢 <strong>Langkah 3 (Penting):</strong> Wakil keluarga lelaki memberi <strong>SIGNAL READY</strong> kepada pihak perempuan &amp; Syakir (Moderator) untuk memulakan peringkat perbincangan.",
 
-        badge_sec2: "2. MENYAMPAIKAN HAJAT",
-        title_sec2: "Menyampaikan Hajat",
-        s2_p1: "Sebelum saya teruskan, izinkan saya mulakan dengan serangkap pantun.",
+        badge_aluan: "11:45 AM · ALUAN",
+        title_aluan: "Pembukaan Majlis &amp; Ucapan Pihak Perempuan",
+        aluan_desc: "1. <strong>Syakir (Moderator):</strong> Membuat pembuka kata alu-aluan majlis dan menjemput bacaan doa pembuka majlis.<br>2. <strong>Wakil Keluarga Perempuan:</strong> Menyampaikan kata selamat datang dan ucapan terima kasih kepada rombongan Naufal.",
+        aluan_note: "👂 <strong>Panduan Nabil:</strong> Dengar pengenalan daripada pihak perempuan (ingat/taip nama jurucakap perempuan di kotak atas). Bersedia untuk giliran bercakap seterusnya.",
+
+        badge_giliran1: "🎙️ 11:50 AM · GILIRAN 1 NABIL",
+        title_giliran1: "Ucapan Balas &amp; Menyampaikan Hajat",
+        s1_p1: "Alhamdulillah, segala puji bagi Allah SWT kerana dengan izin dan rahmat-Nya, dapat kita berkumpul pada hari yang baik ini dalam suasana penuh kemesraan dan kekeluargaan.",
+        s1_p2: "Pertama sekali, bagi pihak keluarga Muhammad Naufal, saya ingin merakamkan setinggi-tinggi penghargaan dan ucapan terima kasih kepada keluarga Sarah (<strong>En Mohd Faizal &amp; Pn Rozila</strong>) kerana sudi menerima kedatangan kami pada hari ini.",
+        s1_p3: "Untuk makluman semua, saya <strong>Nabil Haikal</strong> merupakan abang kepada Naufal dan telah diberi amanah untuk menjadi wakil jurucakap keluarga pihak lelaki.",
+        s2_p1: "Sebelum saya teruskan, izinkan saya mulakan dengan serangkap pantun:",
         s2_pantun_meaning: "<em>(Maksud: Bertandang penuh santun menyusun kata, berhajat menyunting bunga idaman di taman.)</em>",
         s2_p2: "Seperti yang pihak <span class=\"speaker-placeholder highlight-target\">keluarga Sarah</span> sedia maklum, kedatangan kami pada hari ini bukanlah sekadar untuk bertandang atau mengeratkan silaturahim, tetapi ada hajat yang ingin kami sampaikan.",
         s2_p3: "Bak kata orang, kalau tiada angin, masakan pokok bergoyang. Kalau tiada hajat, takkanlah kami datang beramai-ramai.",
         s2_p4: "Alhamdulillah, setelah sekian lama Naufal dan Sarah saling mengenali, kami sebagai keluarga melihat hubungan mereka sebagai sesuatu yang baik dan berharap agar hubungan ini dapat dibawa ke fasa yang lebih serius.",
-        s2_p5: "Justeru, dengan penuh rasa hormat dan rendah hati, kami hadir membawa hasrat untuk merisik dan seterusnya memohon persetujuan pihak keluarga agar Sarah dapat menjadi tunangan dan, insya-Allah, bakal isteri kepada adik kami, Muhammad Naufal.",
+        s2_p5: "Justeru, dengan penuh rasa hormat dan rendah hati, kami hadir membawa hasrat untuk merisik dan seterusnya memohon persetujuan pihak keluarga agar Sarah dapat menjadi tunangan dan, insya-Allah, bakal isteri kepada adik kami, <strong>Muhammad Naufal</strong>.",
         s2_p6: "Maka, bagi pihak keluarga Naufal, ingin saya bertanya kepada <span class=\"speaker-placeholder highlight-target\">wakil keluarga Sarah</span>, <strong>sudikah pihak keluarga menerima hajat dan niat baik yang kami bawa pada hari ini?</strong>",
-        s2_note: "✋ <strong>Nota Tindakan:</strong> (Berhenti seketika dan beri ruang kepada wakil pihak perempuan untuk menjawab.)",
+        giliran1_endnote: "✋ <strong>Isyarat Henti Giliran 1:</strong> Berhenti seketika dan beri ruang kepada wakil pihak perempuan untuk menjawab serta menyatakan harga &amp; syarat.",
 
-        badge_sec3: "3. SELEPAS BERSETUJU",
-        title_sec3: "Selepas Pihak Perempuan Bersetuju",
+        badge_syarat: "11:55 AM · SYARAT PEREMPUAN",
+        title_syarat: "Pihak Perempuan Menyebut Harga &amp; Syarat",
+        syarat_desc: "Wakil keluarga perempuan akan menyatakan ketetapan dan syarat seperti berikut:",
+        syarat_li1: "<strong>Tarikh Nikah:</strong> 13 Ogos 2027 (13/8/27).",
+        syarat_li2: "<strong>Duit Hantaran &amp; Mas Kahwin:</strong> Seperti yang telah dibincangkan antara Naufal &amp; Sarah.",
+        syarat_li3: "<strong>Tempoh Pertunangan:</strong> Hingga ke tarikh nikah (Ikat hidup).",
+        syarat_note: "👂 <strong>Panduan Nabil:</strong> Dengar syarat yang disebutkan. Apabila pihak perempuan selesai dan menyerahkan kembali kata-kata, teruskan dengan <strong>GILIRAN 2</strong> di bawah.",
+
+        badge_giliran2: "🎙️ 11:57 AM · GILIRAN 2 NABIL",
+        title_giliran2: "Keputusan Syarat, Cincin &amp; Pesanan",
         s3_p1: "Terima kasih kami ucapkan kepada pihak keluarga Sarah kerana menerima hasrat dan niat baik daripada keluarga kami.",
         s3_p2: "Saya rasa lega juga sebab dari tadi saya risau tersalah cakap. Takut-takut datang ramai-ramai, balik nanti kena bawa Naufal seorang sahaja.",
         s3_note_laugh: "😄 <strong>Nota Tindakan:</strong> (Berhenti sekejap untuk beri ruang gelak.)",
         s3_p3: "Alhamdulillah, nampaknya hajat yang kami bawa telah disambut dengan baik.",
         s3_p4: "Bagi pihak keluarga Naufal, kami amat menghargai penerimaan ini dan berharap agar pertemuan pada hari ini menjadi titik permulaan kepada hubungan kekeluargaan yang lebih erat antara kedua-dua belah pihak..",
-
-        badge_sec4a: "4A. PERBINCANGAN",
-        title_sec4a: "Perbincangan Ketetapan & Tarikh Pernikahan",
+        subbadge_terma: "KEPUTUSAN KETETAPAN",
         s4a_p1: "Dengan persetujuan yang telah diberikan, maka kita bolehlah meneruskan kepada urusan pertunangan.",
         s4a_p2: "Berkenaan perkara lain seperti mas kahwin dan wang hantaran, saya difahamkan perkara tersebut telah pun dibincangkan antara Naufal dan Sarah.",
         s4a_p3: "Seterusnya, berhubung perkara-perkara lain seperti tempoh pertunangan, cadangan tarikh pernikahan serta persiapan yang berkaitan, bolehlah kita berbincang bersama-sama agar segala keputusan mendapat persetujuan dan kesepakatan kedua-dua belah keluarga.",
@@ -1231,38 +1311,35 @@
         s4a_p7: "Insya-Allah, kalau tiada aral melintang, kita bukan sekadar mengikat tali pertunangan, tetapi menuju kepada ikatan perkahwinan yang berkekalan hingga ke akhir hayat.",
         s4a_p8: "Apa pun, kami terbuka untuk berbincang dan berharap segala urusan ini mendapat persetujuan kedua-dua belah pihak.",
         s4a_p9: "Kami berharap segala yang dipersetujui pada hari ini menjadi permulaan yang baik untuk Naufal dan Sarah.",
-        s4a_note: "💬 <strong>Nota Tindakan:</strong> (Beri ruang untuk berbincang serta mengesahkan persetujuan ketetapan hantaran 3:5 dan tarikh nikah 13 Ogos 2027.)",
-
-        badge_sec4b: "4B. PENYERAHAN",
-        title_sec4b: "Penyerahan Cincin & Hantaran",
+        subbadge_cincin: "PENYERAHAN CINCIN",
         s4b_p1: "Sebagai tanda kesungguhan dan ikatan pertunangan ini, pihak keluarga Muhammad Naufal ingin menyerahkan sebentuk cincin pertunangan berserta hantaran yang telah disediakan sebagai tanda ingatan dan penghargaan kepada pihak keluarga Sarah.",
         s4b_p2: "Kami berharap agar wakil keluarga Sarah dapat menerima tanda pertunangan yang kami sediakan ini.",
-        s4b_note: "💍 <strong>Nota Tindakan:</strong> (Berikan ruang untuk urusan penyerahan cincin dan hantaran mengikut susunan majlis.)",
-
-        badge_sec5: "5. PESANAN ABANG",
-        title_sec5: "Pesanan Abang Kepada Naufal & Sarah",
+        s4b_note: "💍 <strong>Nota Tindakan:</strong> (Berikan ruang untuk urusan penyerahan cincin dan hantaran mengikut susunan majlis. Wakil wanita tampil menyarungkan cincin.)",
+        subbadge_pesanan: "PESANAN ABANG",
         s5_p1: "Sebagai abang, saya cuma nak pesan kepada Naufal dan Sarah, memandangkan selepas ini kamu berdua sudah bergelar tunangan, jagalah diri dan jagalah hubungan sebaik-baiknya sepanjang tempoh pertunangan ini.",
         s5_p2: "Orang kata, tempoh bertunang ni darah manis. Jadi, banyakkan bersabar, saling memahami dan elakkan perkara yang boleh menjejaskan hubungan.",
         s5_p3: "Semoga segala urusan dipermudahkan sehingga hari pernikahan nanti.",
-
-        badge_sec6: "6. PENUTUP",
-        title_sec6: "Penutup",
+        subbadge_penutup: "PENUTUP KATA WAKIL LELAKI",
         s6_p1: "Akhir kata, kami daripada pihak keluarga Muhammad Naufal ingin mengucapkan ribuan terima kasih kepada keluarga Sarah atas sambutan dan layanan yang diberikan kepada kami pada hari ini.",
         s6_p2: "Kami juga menyusun sepuluh jari memohon ampun dan maaf sekiranya terdapat sebarang kekurangan, keterlanjuran kata atau perkara yang kurang menyenangkan sepanjang pertemuan ini.",
         s6_p3: "Semoga hubungan Naufal dan Sarah dipermudahkan sehingga ke alam perkahwinan dan semoga hubungan antara kedua-dua keluarga ini terus erat selepas hari ini.",
         s6_p4: "Kepada Naufal dan Sarah, tahniah atas ikatan pertunangan ini.",
         s6_p5: "Semoga Allah SWT sentiasa memelihara hubungan kalian, menyatukan hati dalam kebaikan dan mempermudahkan perjalanan kalian menuju sebuah perkahwinan yang diberkati.",
 
+        badge_jamuan: "12:00 PM · JAMUAN",
+        title_jamuan: "Penutup Perbincangan &amp; Menjamu Selera",
+        jamuan_desc: "1. <strong>Wakil Keluarga Perempuan:</strong> Menyampaikan kata simbolik penerimaan dan ucapan terima kasih.<br>2. <strong>Syakir (Moderator):</strong> Membuat kata-kata tutupan perbincangan untuk beralih ke peringkat jamuan.<br>3. <strong>Wakil Keluarga Perempuan:</strong> Membaca DOA penutup majlis.<br>4. <strong>Jemputan Makan:</strong> Semua tetamu dipersilakan menjamu selera sehingga majlis tamat jam 2:00 petang.",
+        jamuan_note: "🍽️ <strong>Selesai:</strong> Rombongan lelaki menikmati juadah dan sesi ramah mesra bersama keluarga Sarah.",
+
         poster_footer_quote: "\"Kehadiran serta doa restu daripada saudara-mara amatlah kami hargai bagi menyerikan majlis meminang Naufal.\"",
         poster_footer_thanks: "Terima kasih atas segala doa dan sokongan.",
 
-        jump_s1: "1. Pembukaan",
-        jump_s2: "2. Hajat",
-        jump_s3: "3. Bersetuju",
-        jump_s4a: "4A. Perbincangan",
-        jump_s4b: "4B. Cincin",
-        jump_s5: "5. Pesanan",
-        jump_s6: "6. Penutup",
+        jump_s1: "11:30 Tiba",
+        jump_s2: "11:45 Aluan",
+        jump_s3: "🎙️ Giliran 1: Hajat",
+        jump_s4: "Syarat",
+        jump_s5: "🎙️ Giliran 2: Cincin",
+        jump_s6: "12:00 Jamuan",
 
         modal_pantun_title: "📜 Koleksi Pantun Sandaran (Pantun Spontan)"
       },
@@ -1286,16 +1363,24 @@
         btn_pantun_repo: "📜 Spare Pantun",
         btn_print: "🖨️ Print",
         dua_translation: "\"O my Lord, expand for me my chest, ease my task for me, and remove the impediment from my speech so they may understand my words.\" (Surah Ta-Ha: 25-28)",
-        
-        badge_sec1: "1. OPENING",
-        title_sec1: "Opening & Welcome",
+
+        /* New Itinerary */
+        badge_tiba: "11:30 AM · PREPARATION",
+        title_tiba: "Delegation Arrival &amp; Tray Arrangement",
+        tiba_note1: "🚪 <strong>Step 1:</strong> The bride's family welcomes Naufal's delegation at Tim's Tea House Cafe. Male guests are seated at the designated area.",
+        tiba_note2: "🎁 <strong>Step 2:</strong> Groom's representative places the <strong>3 gift trays</strong> onto the designated presentation table.",
+        tiba_note3: "🟢 <strong>Step 3 (Important):</strong> Groom's representative gives the <strong>READY SIGNAL</strong> to the bride's side &amp; Syakir (Moderator) to commence the discussion.",
+
+        badge_aluan: "11:45 AM · WELCOME",
+        title_aluan: "Ceremony Opening &amp; Welcome by Bride's Side",
+        aluan_desc: "1. <strong>Syakir (Moderator):</strong> Delivers welcoming remarks and invites the opening prayer (Doa).<br>2. <strong>Bride's Family Representative:</strong> Delivers words of welcome and gratitude to Naufal's delegation.",
+        aluan_note: "👂 <strong>Note for Nabil:</strong> Listen attentively to the bride's side introduction (note/type their spokesperson's name in the box above). Prepare for your turn to speak.",
+
+        badge_giliran1: "🎙️ 11:50 AM · NABIL'S 1ST TURN",
+        title_giliran1: "Reply Speech &amp; Conveying the Proposal",
         s1_p1: "All praise is due to Allah SWT, by Whose grace and blessings we are able to gather on this blessed morning in an atmosphere of warmth, harmony, and mutual respect.",
-        s1_p2: "First and foremost, on behalf of the family of Muhammad Naufal, I wish to extend our deepest appreciation and heartfelt gratitude to Sarah's family (<strong>Mr. Mohd Faizal & Madam Rozila</strong>) for graciously welcoming our delegation into your midst today.",
+        s1_p2: "First and foremost, on behalf of the family of Muhammad Naufal, I wish to extend our deepest appreciation and heartfelt gratitude to Sarah's family (<strong>Mr. Mohd Faizal &amp; Madam Rozila</strong>) for graciously welcoming our delegation into your midst today.",
         s1_p3: "For everyone's knowledge, my name is <strong>Nabil Haikal</strong>, elder brother to Naufal, and I have been entrusted by our family to serve as the chief spokesperson for the groom's side today.",
-        s1_note: "💡 <strong>Action Note:</strong> (Pause briefly in case Sarah's family introduces themselves; note their names).",
-        
-        badge_sec2: "2. PROPOSAL",
-        title_sec2: "Conveying the Proposal",
         s2_p1: "Before I proceed further, allow me to begin with an introductory Malay pantun:",
         s2_pantun_meaning: "<em>(Meaning: From far we have journeyed with respectful words, seeking permission to pluck the prized blossom blooming in your garden.)</em>",
         s2_p2: "As the respected <span class=\"speaker-placeholder highlight-target\">Sarah's family</span> are aware, our presence here today is not merely for a casual visit, but carries a sincere and momentous intention.",
@@ -1303,18 +1388,24 @@
         s2_p4: "Alhamdulillah, having witnessed Naufal and Sarah's mutual respect and affection blossom over time, our family wholeheartedly sees this bond as righteous, virtuous, and worthy of moving forward to the sacred next chapter.",
         s2_p5: "Therefore, with the utmost humility and esteem, we are here today to formalize our proposal and seek your family's blessing for Sarah to be betrothed and, God willing, become the cherished lawful wife to our beloved brother, <strong>Muhammad Naufal</strong>.",
         s2_p6: "Hence, on behalf of Naufal's family, I respectfully pose the question to <span class=\"speaker-placeholder highlight-target\">Sarah's family representative</span>: <strong>Is the family pleased to accept the honorable proposal and noble intentions we bring today?</strong>",
-        s2_note: "✋ <strong>Action Note:</strong> (Pause and yield the floor completely. Wait for Sarah's spokesperson to reply and formally grant their agreement.)",
+        giliran1_endnote: "✋ <strong>Pause Cue (Turn 1):</strong> Pause and yield the floor for the bride's representative to reply and state their terms and conditions.",
 
-        badge_sec3: "3. UPON ACCEPTANCE",
-        title_sec3: "After the Bride's Family Agrees",
+        badge_syarat: "11:55 AM · BRIDE'S TERMS",
+        title_syarat: "Bride's Side States Terms &amp; Conditions",
+        syarat_desc: "The bride's family representative will state the agreed terms and conditions:",
+        syarat_li1: "<strong>Solemnization Date:</strong> 13 August 2027 (13/8/27).",
+        syarat_li2: "<strong>Dowry &amp; Mahr:</strong> As previously discussed between Naufal &amp; Sarah.",
+        syarat_li3: "<strong>Engagement Period:</strong> Up until the solemnization date (Ikat hidup).",
+        syarat_note: "👂 <strong>Note for Nabil:</strong> Listen carefully. When the bride's side concludes and hands back the floor, proceed immediately with <strong>TURN 2</strong> below.",
+
+        badge_giliran2: "🎙️ 11:57 AM · NABIL'S 2ND TURN",
+        title_giliran2: "Acceptance of Terms, Ring &amp; Advice",
         s3_p1: "Thank you from the bottom of our hearts to Sarah's family for accepting our intentions and good wishes.",
         s3_p2: "I feel quite relieved, as I was nervous from the start about misspeaking—afraid that after coming in such large numbers, we'd only be taking Naufal home alone!",
         s3_note_laugh: "😄 <strong>Action Note:</strong> (Pause briefly for some laughter and smiles.)",
         s3_p3: "Alhamdulillah, it appears the proposal we brought has been warmly received.",
         s3_p4: "On behalf of Naufal's family, we truly appreciate this acceptance and hope this gathering marks the beginning of an even closer familial bond between both our households.",
-
-        badge_sec4a: "4A. DISCUSSION",
-        title_sec4a: "Discussion of Terms & Wedding Date",
+        subbadge_terma: "TERMS &amp; CONDITIONS CONSENSUS",
         s4a_p1: "With agreement having been graciously granted, we may now proceed to the formal arrangements of the betrothal.",
         s4a_p2: "Regarding other matters such as the mahr (mas kahwin) and dowry (wang hantaran), I understand that these have already been discussed between Naufal and Sarah.",
         s4a_p3: "Next, concerning aspects such as the duration of the engagement, the proposed wedding date, and related preparations, let us discuss together so that all decisions receive mutual consensus from both families.",
@@ -1326,38 +1417,35 @@
         s4a_p7: "God willing, if all goes well, we are not merely tying an engagement bond, but heading toward a lasting marriage till the end of our days.",
         s4a_p8: "In any case, we are open to discussion and hope that all arrangements receive mutual agreement from both sides.",
         s4a_p9: "We hope that everything agreed upon today becomes an auspicious beginning for Naufal and Sarah.",
-        s4a_note: "💬 <strong>Action Note:</strong> (Allow time to discuss and confirm agreement on the 3:5 tray ratio and 13 August 2027 wedding date.)",
-
-        badge_sec4b: "4B. HANDOVER",
-        title_sec4b: "Handover of Ring & Hantaran",
+        subbadge_cincin: "RING PRESENTATION",
         s4b_p1: "As a token of sincerity and of this betrothal bond, the family of Muhammad Naufal wishes to present a betrothal ring together with the prepared hantaran gift trays, as a symbol of remembrance and high regard for Sarah's family.",
         s4b_p2: "We hope that the representative of Sarah's family will graciously accept this token of betrothal that we have prepared.",
-        s4b_note: "💍 <strong>Action Note:</strong> (Allow space for the presentation and ring-wearing ceremony according to the program.)",
-
-        badge_sec5: "5. BROTHER'S ADVICE",
-        title_sec5: "An Elder Brother's Advice",
+        s4b_note: "💍 <strong>Action Note:</strong> (Allow space for the presentation and ring-wearing ceremony according to the program. Female representative presents the ring.)",
+        subbadge_pesanan: "ELDER BROTHER'S ADVICE",
         s5_p1: "As an elder brother, I just want to advise Naufal and Sarah: as you are now officially betrothed, take good care of yourselves and nurture your relationship wisely throughout this engagement.",
         s5_p2: "As the elders say, the engagement period is 'sweet blood'. So be ever patient, understand one another, and avoid anything that could strain harmony.",
         s5_p3: "May all preparations and affairs be made smooth until your joyous wedding day.",
-
-        badge_sec6: "6. CLOSING",
-        title_sec6: "Closing & Sincere Appreciation",
+        subbadge_penutup: "GROOM'S SPOKESPERSON CLOSING",
         s6_p1: "In closing, we from Muhammad Naufal's family wish to express our heartfelt gratitude to Sarah's family for the gracious reception and hospitality extended to us today.",
         s6_p2: "We also humbly seek forgiveness should there have been any shortcomings, slip of the tongue, or anything amiss throughout this gathering.",
         s6_p3: "May Naufal and Sarah's journey toward married life be made smooth, and may the bond between our two families grow ever stronger after today.",
         s6_p4: "To Naufal and Sarah, congratulations on this blessed betrothal.",
         s6_p5: "May Allah SWT ever safeguard your bond, unite your hearts in goodness, and bless your path toward a joyous marriage.",
 
+        badge_jamuan: "12:00 PM · BANQUET",
+        title_jamuan: "Discussion Closing &amp; Feast",
+        jamuan_desc: "1. <strong>Bride's Family Representative:</strong> Delivers symbolic words of acceptance and thanks.<br>2. <strong>Syakir (Moderator):</strong> Wraps up the discussion and transitions to the feast.<br>3. <strong>Bride's Family Representative:</strong> Recites the closing prayer (Doa).<br>4. <strong>Feast Invitation:</strong> All guests are invited to dine until the event concludes at 2:00 PM.",
+        jamuan_note: "🍽️ <strong>Concluded:</strong> Groom's delegation enjoys the feast and fellowship with Sarah's family.",
+
         poster_footer_quote: "\"Kehadiran serta doa restu daripada saudara-mara amatlah kami hargai bagi menyerikan majlis meminang Naufal.\"",
         poster_footer_thanks: "Terima kasih atas segala doa dan sokongan.",
 
-        jump_s1: "1. Opening",
-        jump_s2: "2. Proposal",
-        jump_s3: "3. Acceptance",
-        jump_s4a: "4A. Discussion",
-        jump_s4b: "4B. Ring",
-        jump_s5: "5. Advice",
-        jump_s6: "6. Closing",
+        jump_s1: "11:30 Arrival",
+        jump_s2: "11:45 Welcome",
+        jump_s3: "🎙️ Turn 1: Proposal",
+        jump_s4: "Terms",
+        jump_s5: "🎙️ Turn 2: Ring",
+        jump_s6: "12:00 Feast",
 
         modal_pantun_title: "📜 Spare Pantun Collection (Spontaneous Cheatsheet)"
       }
@@ -1661,13 +1749,6 @@
           stopAutoScroll();
         }
       }, { passive: true });
-    }
-
-    function adjustPrompterFont(delta) {
-      prompterFontSize += (delta * 0.15);
-      if (prompterFontSize < 1.2) prompterFontSize = 1.2;
-      if (prompterFontSize > 3.0) prompterFontSize = 3.0;
-      document.getElementById('prompterContent').style.fontSize = prompterFontSize + 'rem';
     }
 
     /* Highlight Active Jump Button on Scroll */
