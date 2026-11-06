@@ -196,6 +196,7 @@
       display: flex;
       gap: 8px;
       align-items: center;
+      flex-wrap: wrap;
     }
 
     .btn {
@@ -218,10 +219,16 @@
       border-color: var(--gold-primary);
     }
 
-    .btn.active {
-      background: var(--gold-primary);
-      color: #FFFFFF;
+    .btn-prompter {
+      background: linear-gradient(135deg, var(--wood-dark), var(--wood-accent));
+      color: #FFFDF8;
       border-color: var(--gold-primary);
+      font-weight: 700;
+    }
+
+    .btn-prompter:hover {
+      background: linear-gradient(135deg, #241302, #5C2F07);
+      color: #FFFFFF;
     }
 
     /* Script Sections / Cards */
@@ -326,44 +333,122 @@
       color: var(--wood-dark);
     }
 
-    /* Floating navigation for mobile step-by-step */
-    .mobile-nav-bar {
+    /* TELEPROMPTER OVERLAY STYLES */
+    #prompterOverlay {
+      display: none;
       position: fixed;
-      bottom: 0;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #110B04;
+      color: #FFFDF8;
+      z-index: 9999;
+      overflow-y: scroll;
+      padding: 80px 24px 200px 24px;
+      scroll-behavior: smooth;
+    }
+
+    #prompterOverlay.active {
+      display: block;
+    }
+
+    .prompter-nav-bar {
+      position: fixed;
+      top: 0;
       left: 0;
       right: 0;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(8px);
-      border-top: 1px solid var(--border-gold);
-      padding: 10px 16px;
+      background: rgba(26, 15, 5, 0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--gold-primary);
+      padding: 12px 20px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      box-shadow: 0 -4px 12px rgba(0,0,0,0.06);
-      z-index: 100;
+      justify-content: space-between;
+      z-index: 10000;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
-    .nav-btn {
-      background: var(--wood-dark);
-      color: #FFFFFF;
+    .prompter-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .prompter-btn {
+      background: var(--gold-primary);
+      color: #1A0F05;
       border: none;
-      padding: 10px 18px;
-      border-radius: 10px;
+      padding: 8px 14px;
+      border-radius: 6px;
       font-weight: 700;
-      cursor: pointer;
       font-size: 0.9rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
     }
 
-    .nav-btn:disabled {
-      opacity: 0.35;
-      cursor: not-allowed;
+    .prompter-btn:hover {
+      background: var(--gold-light);
     }
 
-    .step-indicator {
+    .prompter-btn.btn-close {
+      background: #D9534F;
+      color: #FFF;
+    }
+
+    .prompter-speed {
+      color: var(--mustard-soft);
       font-size: 0.85rem;
       font-weight: 700;
-      color: var(--wood-accent);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .prompter-speed input[type="range"] {
+      accent-color: var(--gold-primary);
+      cursor: pointer;
+      width: 80px;
+    }
+
+    .prompter-content {
+      max-width: 820px;
+      margin: 0 auto;
+      font-size: 1.85rem;
+      line-height: 2.1;
+      font-weight: 500;
+    }
+
+    .prompter-content h3 {
       font-family: 'Cinzel', serif;
+      color: var(--mustard-soft);
+      font-size: 2.2rem;
+      margin-top: 40px;
+      margin-bottom: 16px;
+      border-bottom: 1px solid rgba(229, 178, 93, 0.3);
+      padding-bottom: 8px;
+    }
+
+    .prompter-content .prompter-note {
+      color: #EDA628;
+      font-size: 1.35rem;
+      font-style: italic;
+      background: rgba(226, 155, 18, 0.12);
+      border-left: 4px solid var(--mustard);
+      padding: 10px 18px;
+      margin: 20px 0;
+      border-radius: 4px;
+    }
+
+    .prompter-content .prompter-pantun {
+      color: #FEE890;
+      font-style: italic;
+      padding: 14px 20px;
+      border-left: 3px solid var(--gold-light);
+      margin: 20px 0;
     }
 
     /* Print Styles */
@@ -373,7 +458,7 @@
         color: black;
         padding-bottom: 0;
       }
-      .controls-panel, .mobile-nav-bar, .palette-strip {
+      .controls-panel, .palette-strip, #prompterOverlay {
         display: none !important;
       }
       .section-card {
@@ -430,6 +515,7 @@
         <input type="text" id="speakerInput" placeholder="Contoh: En. Azman / Pak Ngah" oninput="updateTargetName(this.value)">
       </div>
       <div class="btn-group">
+        <button class="btn btn-prompter" onclick="openPrompter()">📽️ Mod Teleprompter</button>
         <button class="btn" onclick="adjustFont(-1)" title="Kecilkan Fon">A-</button>
         <button class="btn" onclick="adjustFont(1)" title="Besarkan Fon">A+</button>
         <button class="btn" onclick="window.print()" title="Cetak atau Simpan PDF">🖨️ Cetak</button>
@@ -614,6 +700,32 @@
     </article>
   </div>
 
+  <!-- FULLSCREEN TELEPROMPTER OVERLAY -->
+  <div id="prompterOverlay">
+    <div class="prompter-nav-bar">
+      <div class="prompter-controls">
+        <button class="prompter-btn" id="playBtn" onclick="togglePrompterPlay()">▶ Mula Auto-Scroll</button>
+        <button class="prompter-btn" onclick="restartPrompter()">⏮ Semula</button>
+      </div>
+
+      <div class="prompter-speed">
+        <span>Kelajuan:</span>
+        <input type="range" id="speedSlider" min="1" max="10" value="3" onchange="updateScrollSpeed(this.value)">
+        <span id="speedVal">3x</span>
+      </div>
+
+      <div class="prompter-controls">
+        <button class="prompter-btn" onclick="adjustPrompterFont(-2)">A-</button>
+        <button class="prompter-btn" onclick="adjustPrompterFont(2)">A+</button>
+        <button class="prompter-btn btn-close" onclick="closePrompter()">✖ Tutup</button>
+      </div>
+    </div>
+
+    <div class="prompter-content" id="prompterContent">
+      <!-- Injected via JavaScript from cards -->
+    </div>
+  </div>
+
   <script>
     function updateTargetName(val) {
       const placeholders = document.querySelectorAll('.speaker-placeholder');
@@ -631,6 +743,98 @@
       document.querySelectorAll('.dialogue-text, .pantun-box, .points-list').forEach(el => {
         el.style.fontSize = currentSize + 'rem';
       });
+    }
+
+    /* TELEPROMPTER LOGIC */
+    let isScrolling = false;
+    let scrollInterval = null;
+    let scrollSpeed = 3;
+    let prompterFontSize = 1.85;
+
+    function openPrompter() {
+      const overlay = document.getElementById('prompterOverlay');
+      const content = document.getElementById('prompterContent');
+      
+      // Build prompter text from cards
+      let html = '';
+      const cards = document.querySelectorAll('.section-card');
+      cards.forEach(card => {
+        const title = card.querySelector('.section-title').innerText;
+        html += `<h3>${title}</h3>`;
+        
+        const children = card.querySelectorAll('.dialogue-text, .pantun-box, .stage-direction, .points-list');
+        children.forEach(c => {
+          if (c.classList.contains('stage-direction')) {
+            html += `<div class="prompter-note">${c.innerHTML}</div>`;
+          } else if (c.classList.contains('pantun-box')) {
+            html += `<div class="prompter-pantun">${c.innerHTML}</div>`;
+          } else if (c.classList.contains('points-list')) {
+            html += `<div class="prompter-points" style="font-size:1.6rem; color:#F9DA79; margin: 15px 0;">${c.innerHTML}</div>`;
+          } else {
+            html += `<p style="margin-bottom: 20px;">${c.innerHTML}</p>`;
+          }
+        });
+        html += '<hr style="border-color: rgba(229,178,93,0.2); margin: 30px 0;">';
+      });
+
+      content.innerHTML = html;
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      overlay.scrollTop = 0;
+    }
+
+    function closePrompter() {
+      stopAutoScroll();
+      document.getElementById('prompterOverlay').classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    function togglePrompterPlay() {
+      if (isScrolling) {
+        stopAutoScroll();
+      } else {
+        startAutoScroll();
+      }
+    }
+
+    function startAutoScroll() {
+      isScrolling = true;
+      document.getElementById('playBtn').innerHTML = '⏸ Berhenti';
+      const overlay = document.getElementById('prompterOverlay');
+      
+      if (scrollInterval) clearInterval(scrollInterval);
+      scrollInterval = setInterval(() => {
+        overlay.scrollTop += (scrollSpeed * 0.7);
+        if (overlay.scrollTop + overlay.clientHeight >= overlay.scrollHeight - 5) {
+          stopAutoScroll();
+        }
+      }, 30);
+    }
+
+    function stopAutoScroll() {
+      isScrolling = false;
+      document.getElementById('playBtn').innerHTML = '▶ Sambung Auto-Scroll';
+      if (scrollInterval) clearInterval(scrollInterval);
+    }
+
+    function restartPrompter() {
+      stopAutoScroll();
+      document.getElementById('prompterOverlay').scrollTop = 0;
+    }
+
+    function updateScrollSpeed(val) {
+      scrollSpeed = parseInt(val);
+      document.getElementById('speedVal').innerText = val + 'x';
+      if (isScrolling) {
+        startAutoScroll();
+      }
+    }
+
+    function adjustPrompterFont(delta) {
+      prompterFontSize += (delta * 0.15);
+      if (prompterFontSize < 1.2) prompterFontSize = 1.2;
+      if (prompterFontSize > 3.0) prompterFontSize = 3.0;
+      document.getElementById('prompterContent').style.fontSize = prompterFontSize + 'rem';
     }
   </script>
 </body>
