@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ms">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Spokesperson Script - Naufal & Sarah Proposal & Betrothal Ceremony</title>
+  <title>Skrip Wakil Lelaki - Majlis Meminang Naufal &amp; Sarah</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Great+Vibes&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -762,8 +762,8 @@
 
     <!-- Top Utility Bar: Wake Lock & Language Toggle -->
     <aside class="top-utility-bar" aria-label="System Settings">
-      <div id="wakeLockBadge" class="status-badge" onclick="toggleWakeLockManual()" title="Click to toggle Screen Wake Lock">
-        <span id="wakeLockDot">🟢</span> <span id="wakeLockText">Screen Kept Awake</span>
+      <div id="wakeLockBadge" class="status-badge" onclick="toggleWakeLockManual()" title="Ketik untuk kawal Skrin Sentiasa Menyala">
+        <span id="wakeLockDot">🟢</span> <span id="wakeLockText">Skrin Sentiasa Menyala</span>
       </div>
 
       <div class="lang-toggle-wrap">
@@ -775,45 +775,45 @@
 
     <!-- Poster Aligned Hero Banner -->
     <header class="hero-banner">
-      <div class="subtitle-top" data-key="hero_delegation">The Proposal Delegation</div>
+      <div class="subtitle-top" data-key="hero_delegation">Rombongan Meminang</div>
       <h1 class="title-main">NAUFAL &amp; SARAH</h1>
-      <span class="title-script" data-key="hero_script_title">Meminang &amp; Bertunang</span>
+      <span class="title-script" data-key="hero_script_title">Naufal &amp; Sarah</span>
       <div class="tagline" data-key="hero_tagline">"Menyulam Kasih, Mengikat Janji"</div>
 
       <div class="event-meta">
         <div class="meta-item">
           <span class="meta-icon">📅</span>
           <div class="meta-text">
-            <strong data-key="meta_date_label">Date of Event</strong>
-            <span data-key="meta_date_val">Saturday, 7 November 2026</span>
+            <strong data-key="meta_date_label">Tarikh Majlis</strong>
+            <span data-key="meta_date_val">Sabtu, 7 November 2026</span>
           </div>
         </div>
         <div class="meta-item">
           <span class="meta-icon">⏰</span>
           <div class="meta-text">
-            <strong data-key="meta_time_label">Gathering Time</strong>
-            <span data-key="meta_time_val">11:00 AM</span>
+            <strong data-key="meta_time_label">Waktu Berkumpul</strong>
+            <span data-key="meta_time_val">11.00 Pagi</span>
           </div>
         </div>
         <div class="meta-item">
           <span class="meta-icon">📍</span>
           <div class="meta-text">
-            <strong data-key="meta_loc_label">Event Venue</strong>
+            <strong data-key="meta_loc_label">Lokasi Majlis</strong>
             <span data-key="meta_loc_val">Tim's Tea House Cafe, Taman Melawati</span>
           </div>
         </div>
         <div class="meta-item">
           <span class="meta-icon">👔</span>
           <div class="meta-text">
-            <strong data-key="meta_spk_label">Spokesperson (Male)</strong>
-            <span>Nabil Haikal (Elder Brother)</span>
+            <strong data-key="meta_spk_label">Jurucakap Pihak Lelaki</strong>
+            <span>Nabil Haikal (Abang Naufal)</span>
           </div>
         </div>
       </div>
 
       <!-- Color Palette Matching the Poster -->
-      <div class="palette-strip" title="Dress Code: Gold, Mustard, Yellow">
-        <span style="font-size:0.75rem; color:#E8D5B5; margin-right:4px;" data-key="meta_theme_label">Attire Theme: Gold, Mustard, Yellow</span>
+      <div class="palette-strip" title="Tema Pakaian: Gold, Mustard, Kuning">
+        <span style="font-size:0.75rem; color:#E8D5B5; margin-right:4px;" data-key="meta_theme_label">Tema Pakaian: Gold, Mustard, Kuning</span>
         <div class="swatch" style="background: #995B16;" title="Wood Brown"></div>
         <div class="swatch" style="background: #BD7C1A;" title="Deep Gold"></div>
         <div class="swatch" style="background: #EDA628;" title="Mustard"></div>
@@ -825,15 +825,15 @@
     <!-- Toolbar / Controls Panel -->
     <section class="controls-panel">
       <div class="target-input-wrap">
-        <label for="speakerInput" data-key="lbl_speaker_name">Sarah's Spokesperson Name (Once Introduced):</label>
-        <input type="text" id="speakerInput" placeholder="e.g. Mr. Azman / Uncle Faizal" oninput="updateTargetName(this.value)">
+        <label for="speakerInput" data-key="lbl_speaker_name">Nama Jurucakap Pihak Sarah (Bila Dah Tahu):</label>
+        <input type="text" id="speakerInput" placeholder="Contoh: En. Azman / Pak Ngah" oninput="updateTargetName(this.value)">
       </div>
       <div class="btn-group">
-        <button class="btn btn-prompter" onclick="openPrompter()" data-key="btn_prompter">📽️ Teleprompter Mode</button>
-        <button class="btn btn-pantun" onclick="openPantunModal()" data-key="btn_pantun_repo">📜 Spare Pantun</button>
-        <button class="btn" onclick="adjustFont(-1)" title="Smaller Font">A-</button>
-        <button class="btn" onclick="adjustFont(1)" title="Larger Font">A+</button>
-        <button class="btn" onclick="window.print()" title="Print / Save PDF" data-key="btn_print">🖨️ Print</button>
+        <button class="btn btn-prompter" onclick="openPrompter()" data-key="btn_prompter">📽️ Mod Teleprompter</button>
+        <button class="btn btn-pantun" onclick="openPantunModal()" data-key="btn_pantun_repo">📜 Pantun Sandaran</button>
+        <button class="btn" onclick="adjustFont(-1)" title="Kecilkan Fon">A-</button>
+        <button class="btn" onclick="adjustFont(1)" title="Besarkan Fon">A+</button>
+        <button class="btn" onclick="window.print()" title="Cetak atau Simpan PDF" data-key="btn_print">🖨️ Cetak</button>
       </div>
     </section>
 
@@ -841,7 +841,7 @@
     <div class="dua-card">
       <div class="dua-arabic">رَبِّ اشْرَحْ لِي صَدْرِي وَيَسِّرْ لِي أَمْرِي وَاحْلُلْ عُقْدَةً مِّن لِّسَانِي يَفْقَهُوا قَوْلِي</div>
       <div class="dua-trans" data-key="dua_translation">
-        "O my Lord, expand for me my chest, ease my task for me, and remove the impediment from my speech so they may understand my words." (Surah Ta-Ha: 25-28)
+        "Wahai Tuhanku, lapangkanlah dadaku, mudahkanlah tugasku, dan lepaskanlah simpulan dari lidahku agar mereka memahami perkataanku." (Surah Ta-Ha: 25-28)
       </div>
     </div>
 
@@ -1142,12 +1142,12 @@
   <div id="prompterOverlay">
     <div class="prompter-nav-bar">
       <div class="prompter-controls">
-        <button class="prompter-btn" id="playBtn" onclick="togglePrompterPlay()">▶ Start Auto-Scroll</button>
-        <button class="prompter-btn" onclick="restartPrompter()">⏮ Restart</button>
+        <button class="prompter-btn" id="playBtn" onclick="togglePrompterPlay()">▶ Mula Auto-Scroll</button>
+        <button class="prompter-btn" onclick="restartPrompter()">⏮ Semula</button>
       </div>
 
       <div class="prompter-speed">
-        <span>Speed:</span>
+        <span>Kelajuan:</span>
         <input type="range" id="speedSlider" min="1" max="10" value="3" onchange="updateScrollSpeed(this.value)">
         <span id="speedVal">3x</span>
       </div>
@@ -1155,7 +1155,7 @@
       <div class="prompter-controls">
         <button class="prompter-btn" onclick="adjustPrompterFont(-2)">A-</button>
         <button class="prompter-btn" onclick="adjustPrompterFont(2)">A+</button>
-        <button class="prompter-btn btn-close" onclick="closePrompter()">✖ Close</button>
+        <button class="prompter-btn btn-close" onclick="closePrompter()">✖ Tutup</button>
       </div>
     </div>
 
@@ -1366,6 +1366,7 @@
     function setLanguage(lang) {
       currentLang = lang;
       document.documentElement.lang = lang;
+      localStorage.setItem('langPref', lang);
       
       document.getElementById('btnLangEn').classList.toggle('active', lang === 'en');
       document.getElementById('btnLangMs').classList.toggle('active', lang === 'ms');
@@ -1380,12 +1381,23 @@
       });
 
       // Update speaker placeholder if not customized
-      const inputVal = document.getElementById('speakerInput').value.trim();
+      const inputEl = document.getElementById('speakerInput');
+      inputEl.placeholder = lang === 'en' ? 'e.g. Mr. Azman / Uncle Faizal' : 'Contoh: En. Azman / Pak Ngah';
+      const inputVal = inputEl.value.trim();
       if (!inputVal) {
         updateTargetName(dict.speaker_placeholder);
       } else {
         updateTargetName(inputVal);
       }
+
+      // Update play button text in prompter if not currently running
+      const playBtn = document.getElementById('playBtn');
+      if (playBtn && !isScrolling) {
+        playBtn.innerHTML = lang === 'en' ? '▶ Start Auto-Scroll' : '▶ Mula Auto-Scroll';
+      }
+
+      // Update wake lock status badge text
+      updateWakeLockUI(wakeLockSentinel !== null);
     }
 
     /* ========================================================
@@ -1478,8 +1490,9 @@
 
     window.addEventListener('load', () => {
       requestWakeLock();
-      // Set initial language to original Malay script
-      setLanguage('ms');
+      // Set initial language to original Malay script by default
+      const savedLang = localStorage.getItem('langPref') || 'ms';
+      setLanguage(savedLang);
     });
 
     /* ========================================================
